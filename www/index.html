@@ -28,14 +28,37 @@
     <body>
         <div class="app">
             <button type="button" onclick="alert('You have Checked In!');">Check In!</button>
+            <button id='test' type="button">Do Something!</button>
 
             
                         
         </div>
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/stackmob-js-0.9.2-bundled-min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
+            StackMob.init({
+              publicKey: "bad2ed15-05c4-4b0a-9b8a-26734bc68536",
+              apiVersion: 0
+            });
+
+            var doSomething = function() {
+              var Checkin = StackMob.Model.extend({ schemaName: 'checkin' });
+ 
+              var checkin = new Checkin({
+                time: new Date(),
+                user: 'test@example.com'
+              });
+               
+              checkin.create({
+                success: function(model, result, options) { alert("Successfully saved: " + JSON.stringify(model.toJSON())); },
+                error: function(model, error, options) {}
+              });
+            }
+
+            $('#test').click(doSomething);
         </script>
     </body>
 </html>

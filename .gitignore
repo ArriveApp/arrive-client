@@ -1,3 +1,7 @@
 platforms/android/bin/
 platforms/ios/bin/
 *.log
+platforms/ios/.DS_Store
+platforms/ios/CordovaLib/CordovaLib.xcodeproj/xcuserdata/
+platforms/ios/HelloCordova.xcodeproj/xcuserdata/
+platforms/ios/HelloCordova.xcodeproj/project.xcworkspace/
