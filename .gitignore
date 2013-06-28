@@ -1,1 +1,3 @@
 platforms/android/bin/
+platforms/ios/bin/
+*.log
