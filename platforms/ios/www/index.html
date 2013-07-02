@@ -53,7 +53,7 @@
               });
                
               checkin.create({
-                success: function(model, result, options) { alert("Successfully saved: " + model.toJSON()); },
+                success: function(model, result, options) { alert("Successfully saved: " + JSON.stringify(model.toJSON())); },
                 error: function(model, error, options) {}
               });
             }
