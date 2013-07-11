@@ -22,7 +22,7 @@ package com.arrive;
 import android.os.Bundle;
 import org.apache.cordova.*;
 
-public class HelloCordova extends DroidGap
+public class Arrive extends DroidGap
 {
     @Override
     public void onCreate(Bundle savedInstanceState)
