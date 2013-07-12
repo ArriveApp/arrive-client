@@ -7,9 +7,11 @@ Tech Stack
 ----------
 
 This client app is build using Apache Cordova (PhoneGap), and currently supports the ios and android platforms. 
+
 We use node, and the cordova-cli package to build and run the application. 
 We use Ripple as a browser based emulator for the various mobile platforms.
 We use Jasmine and PhantomJS run the JavaScript spec tests.
+
 This client app is served by a [node server backend](https://github.com/ArriveApp/arrive-server).
 
 Dev Machine Setup
@@ -46,24 +48,22 @@ Since app development is as simple as editing html, js and css files, you can pr
 
 *NOTE*: Regardless of which editor you use, please do not commit editor specific files into the repo. Add them to the .gitignore file in the root folder.
 
-- To set up a quick feedback loop using the Ripple emulator:
+To set up a quick feedback loop using the Ripple emulator:
 
-    1. Start a local file server:
+1. Start a local file server:
 
             cordova serve android
 
-    2. Hit the server (usually http:://localhost:8000).
-    3. If you have not enabled the Ripple extention yet, click on its icon and select Enable.
+2. Hit the server (usually http:://localhost:8000).
+3. If you have not enabled the Ripple extention yet, click on its icon and select Enable.
 
-- To run the app in the official platform emulators:
+To run the app in the official platform emulators:
 
-    1. Build the platform-specific binaries
+1. Build the platform-specific binaries. (This builds for all platforms. pass in a platform parameter _ios_ or _android_ to build for just that platform)..
     
             cordova build
 
-        (This builds for all platforms. pass in a platform parameter _ios_ or _android_ to build for just that platform)
-
-    2. Now, launch the emulator for the specific platform
+2. Now, launch the emulator for the specific platform
     
             cordova emulate ios
             cordova emulate android
