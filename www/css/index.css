@@ -63,6 +63,25 @@ body {
     font-size:50px;
 }
 
+.registration {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    background-size: 50%;
+    position:absolute;             /* position in the center of the screen */
+    top:30%;
+    left:50%;
+    height:50px;                   /* text area height */
+    width:400px;                   /* text area width */
+    text-align:center;
+    padding:300px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-114px 0px 0px -202px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+.registration button {
+    font-size:50px;
+}
+
+
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
