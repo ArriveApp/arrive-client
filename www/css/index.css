@@ -118,9 +118,9 @@ h1 {
 }
 
 h2 {
-    font-size: 21px;
+    font-size: 22px;
     text-align:center;
-    margin:-110px 0px 0px 0px;
+    margin:100px -70px 0px 0px;
     padding-bottom: 50px;
 
 }
@@ -139,6 +139,15 @@ h4 {
     margin-left:130px;
     margin-right:50px;
     margin-top:0px;
+}
+h5 {
+    font-size: 20px;
+    text-transform:capitalize;
+    font-weight:normal;
+    text-align:center;
+    margin-left:130px;
+    margin-right:50px;
+    margin-top:-10px;
 }
 
 #registration {
