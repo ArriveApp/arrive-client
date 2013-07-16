@@ -78,7 +78,7 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
-.registration button {
+button {
     font-size:30px;
 }
 
@@ -99,8 +99,21 @@ h1 {
     margin:0px;
     overflow:visible;
     padding:0px;
-    text-align:center;
+    text-align:left;
 }
+
+h2 {
+    font-size: 21px;
+    text-align:center;
+    margin:-110px 0px 0px 0px;
+    padding-bottom: 50px;
+
+}
+
+#registration {
+   margin-top:20px;
+}
+
 
 .event {
     border-radius:4px;
