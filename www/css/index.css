@@ -78,6 +78,21 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
+.home {
+    background:url(../img/b.png) no-repeat center top; /* 170px x 200px */
+    background-size: 115%;
+    position:absolute;             /* position in the center of the screen */
+    top:0%;
+    left:40%;
+    height:100px;                   /* text area height */
+    width:450px;                   /* text area width */
+    text-align:center;
+    padding:100px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:10px 0px 0px -235px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+
 button {
     font-size:30px;
 }
@@ -110,8 +125,37 @@ h2 {
 
 }
 
+h3 {
+    font-size: 25px;        
+    text-align:center;
+    margin:100px -70px 0px 0px;
+}
+
+h4 {
+    font-size: 20px;
+    text-transform:capitalize;
+    font-weight:normal;
+    text-align:center;
+    margin-left:130px;
+    margin-right:50px;
+    margin-top:0px;
+}
+
 #registration {
    margin-top:20px;
+}
+
+#Personal {
+    margin-top:0px;
+    
+    margin-left:70px;
+    text-align:right;
+}
+
+#Public {
+    margin-top:opx;
+    margin-right: 0px;
+    text-align:right;
 }
 
 
