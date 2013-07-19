@@ -78,7 +78,7 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
-.home {
+.HomePrivate {
     background:url(../img/b.png) no-repeat center top; /* 170px x 200px */
     background-size: 115%;
     position:absolute;             /* position in the center of the screen */
@@ -90,6 +90,19 @@ body {
     padding:100px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
     margin:10px 0px 0px -235px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
+}
+
+.PublicHome {
+    background:url(../img/b.png) no-repeat center top; /* 170px x 200px */
+    background-size: 130%;
+   margin-right:auto;
+   margin-left:10px;              /* position in the center of the screen */
+    top:0%;
+    height:100px;                   /* text area height */
+    width:600px;                   /* text area width */
+   
+    padding:100px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    
 }
 
 
@@ -127,7 +140,7 @@ h2 {
 }
 
 h3 {
-    font-size: 25px;        
+    font-size: 16px;        
     text-align:center;
     margin:100px -70px 0px 0px;
     text-transform:uppercase;
@@ -148,10 +161,22 @@ h5 {
     font-weight:normal;
     text-align:center;
     margin-left:130px;
-    margin-right:50px;
+    margin-right:70px;
     margin-top:-10px;
 }
 
+h6 {
+    font-size: 20px;
+    font-weight:normal;
+    text-align:center;
+    margin-left:130px;
+    margin-right:50px;
+    margin-top:-20px;
+}
+
+
+
+/*--------------------------------------------------------------------------------------------------------*/
 
 #registration {
    margin-top:20px;
@@ -198,11 +223,11 @@ h5 {
     font-weight:;
 }
 
-#NewRoom{
+#NewClass {
     margin-top:0px;
     font-size:30px;
-    margin-left:70px;
-    text-align:right;
+    margin-left:10px;
+    text-align:center;
     text-decoration:none; 
     border:2px outset buttonface;
     color: buttontext;
