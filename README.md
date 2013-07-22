@@ -17,29 +17,38 @@ This client app is served by a [node server backend](https://github.com/ArriveAp
 Dev Machine Setup
 -----------------
 
-1. Install [Node.js](http://nodejs.org/download/)
-2. Using npm, install the node cordova-cli package:
+1. Install XCode (use the App Store) and the [command line tools](https://developer.apple.com/downloads/) to build binaries for the iOS platform.
+
+2. Install [Homebrew](http://mxcl.github.io/homebrew/):
+
+            ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+
+3. Install [Node.js](http://nodejs.org/):
+
+            brew install node
+
+4. Using npm, install the node cordova-cli package:
 
             sudo npm install -g cordova
 
-3. To ensure permissions are correct, run this command on Mac or Linux, replacing <login_user> to match your account name:
+5. To ensure permissions are correct, run this command on Mac or Linux, replacing <login_user> to match your account name:
 
             sudo chown -R <login_user> /usr/local/lib/node_modules/cordova
                 
-4. Install the [Ripple](https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc?hl=en) Chrome extension.
+6. Install the [Android SDK](http://developer.android.com/sdk/index.html) to build binaries for the Android platform. You will need to add the sdk tools subfolder to the system path.
 
-5. Install the [Android SDK](http://developer.android.com/sdk/index.html) to build binaries for the Android platform. You will need to add the sdk tools subfolder to the system path.
+            brew install android-sdk
 
-6. Install XCode and the [commandline tools](http://stackoverflow.com/questions/9329243/xcode-4-4-command-line-tools) to build binaries for the ios platform.
-
-7. Install [Homebrew](http://mxcl.github.io/homebrew/).
-8. Install ios-sim. This allows cordova to launch the ios simulator from the commandline
+7. Install ios-sim. This allows cordova to launch the ios simulator from the commandline
   
             brew install ios-sim
 
-9. Install phantomjs for our test runner
+8. Install phantomjs for our test runner
   
             brew install phantomjs
+
+9. Install the [Ripple](https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc?hl=en) Chrome extension.
+
 
 Dev Workflow
 ------------
