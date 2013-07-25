@@ -17,14 +17,14 @@
  * under the License.
  */
 * {
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
 body {
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#ffffff;
+    -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color: #ffffff;
     /*background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -35,160 +35,157 @@ body {
         color-stop(0, #A7A7A7),
         color-stop(0.51, #E4E4E4)
     );*/
-    background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:18px;
-    height:100%;
-    margin:0px;
-    padding:0px;
-    
-    width:100%;
+    background-attachment: fixed;
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+
+    width: 100%;
 }
 
 /* Portrait layout (default) */
 .app {
-    background:url(../img/a.png) no-repeat center top; /* 170px x 200px */
+    background: url(../img/logo.png) no-repeat center top; /* 170px x 200px */
     background-size: 70%;
-    position:absolute;             /* position in the center of the screen */
+    position: absolute;
     left:50%;
-    top:40%;
-    height:50px;                   /* text area height */
-    width:400px;                   /* text area width */
-    text-align:center;
-    padding:300px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-114px 0px 0px -202px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
+    top:20%;
+    height:50px;
+    width:400px;
+    text-align: center;
+    padding: 300px 0 0 0; /* image height is 200px (bottom 20px are overlapped with text) */
+    margin: -114px 0 0 -202px; /* offset vertical: half of image height and text area height */
+    /* offset horizontal: half of text area width */
 }
 
 .app button {
-    font-size:30px;
+    font-size: 30px;
 }
 
 .registration {
-    background:url(../img/a.png) no-repeat center top; /* 170px x 200px */
+    background: url(../img/a.png) no-repeat center top; /* 170px x 200px */
     background-size: 70%;
-    position:absolute;             /* position in the center of the screen */
-    top:30%;
-    left:50%;
-    height:50px;                   /* text area height */
-    width:400px;                   /* text area width */
-    text-align:center;
-    padding:300px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-114px 0px 0px -202px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
+    position: absolute; /* position in the center of the screen */
+    top: 30%;
+    left: 50%;
+    height: 50px; /* text area height */
+    width: 400px; /* text area width */
+    text-align: center;
+    padding: 300px 0px 0px 0px; /* image height is 200px (bottom 20px are overlapped with text) */
+    margin: -114px 0px 0px -202px; /* offset vertical: half of image height and text area height */
+    /* offset horizontal: half of text area width */
 }
 
 .HomePrivate {
-    background:url(../img/b.png) no-repeat center top; /* 170px x 200px */
+    background: url(../img/b.png) no-repeat center top; /* 170px x 200px */
     background-size: 115%;
-    position:absolute;             /* position in the center of the screen */
-    top:0%;
-    left:40%;
-    height:100px;                   /* text area height */
-    width:450px;                   /* text area width */
-    text-align:center;
-    padding:100px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:10px 0px 0px -235px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
+    position: absolute; /* position in the center of the screen */
+    top: 0%;
+    left: 40%;
+    height: 100px; /* text area height */
+    width: 450px; /* text area width */
+    text-align: center;
+    padding: 100px 0px 0px 0px; /* image height is 200px (bottom 20px are overlapped with text) */
+    margin: 10px 0px 0px -235px; /* offset vertical: half of image height and text area height */
+    /* offset horizontal: half of text area width */
 }
 
 .PublicHome {
-    background:url(../img/b.png) no-repeat center top; /* 170px x 200px */
+    background: url(../img/b.png) no-repeat center top; /* 170px x 200px */
     background-size: 130%;
-   margin-right:auto;
-   margin-left:10px;              /* position in the center of the screen */
-    top:0%;
-    height:100px;                   /* text area height */
-    width:600px;                   /* text area width */
-   
-    padding:100px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    
-}
+    margin-right: auto;
+    margin-left: 10px; /* position in the center of the screen */
+    top: 0%;
+    height: 100px; /* text area height */
+    width: 600px; /* text area width */
 
+    padding: 100px 0px 0px 0px; /* image height is 200px (bottom 20px are overlapped with text) */
+
+}
 
 button {
-    font-size:30px;
+    font-size: 30px;
 }
-
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
-        background-position:left center;
-        padding:350px 0px 75px 0px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-250px 0px 0px -165px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
+        background-position: left center;
+        padding: 350px 0px 75px 0px; /* padding-top + padding-bottom + text area = image height */
+        margin: -250px 0px 0px -165px; /* offset vertical: half of image height */
+        /* offset horizontal: half of image width and text area width */
     }
 }
 
 h1 {
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:left;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0px;
+    overflow: visible;
+    padding: 0px;
+    text-align: left;
 }
 
 h2 {
     font-size: 22px;
-    text-align:center;
-    margin:100px -70px 0px 0px;
+    text-align: center;
+    margin: 100px -70px 0px 0px;
     padding-bottom: 50px;
-    text-transform:uppercase;
+    text-transform: uppercase;
 
 }
 
 h3 {
-    font-size: 16px;        
-    text-align:center;
-    margin:100px -70px 0px 0px;
-    text-transform:uppercase;
+    font-size: 16px;
+    text-align: center;
+    margin: 100px -70px 0px 0px;
+    text-transform: uppercase;
 }
 
 h4 {
     font-size: 20px;
-    text-transform:capitalize;
-    font-weight:normal;
-    text-align:center;
-    margin-left:130px;
-    margin-right:50px;
-    margin-top:0px;
+    text-transform: capitalize;
+    font-weight: normal;
+    text-align: center;
+    margin-left: 130px;
+    margin-right: 50px;
+    margin-top: 0px;
 
 }
+
 h5 {
     font-size: 20px;
-    font-weight:normal;
-    text-align:center;
-    margin-left:130px;
-    margin-right:70px;
-    margin-top:-10px;
+    font-weight: normal;
+    text-align: center;
+    margin-left: 130px;
+    margin-right: 70px;
+    margin-top: -10px;
 }
 
 h6 {
     font-size: 20px;
-    font-weight:normal;
-    text-align:center;
-    margin-left:130px;
-    margin-right:50px;
-    margin-top:-20px;
+    font-weight: normal;
+    text-align: center;
+    margin-left: 130px;
+    margin-right: 50px;
+    margin-top: -20px;
 }
-
-
 
 /*--------------------------------------------------------------------------------------------------------*/
 
 #registration {
-   margin-top:20px;
+    margin-top: 20px;
 }
 
 #Personal {
-    margin-top:0px;
-    font-size:30px;
-    margin-left:70px;
-    text-align:right;
-    text-decoration:none; 
-    border:2px outset buttonface;
+    margin-top: 0px;
+    font-size: 30px;
+    margin-left: 70px;
+    text-align: right;
+    text-decoration: none;
+    border: 2px outset buttonface;
     color: buttontext;
     padding: 2px 6px 3px;
     -webkit-appearance: button;
@@ -197,12 +194,12 @@ h6 {
 }
 
 #StudentLogIn {
-    margin-top:0px;
-    font-size:30px;
-    margin-left:70px;
-    text-align:right;
-    text-decoration:none; 
-    border:2px outset buttonface;
+    margin-top: 0px;
+    font-size: 30px;
+    margin-left: 70px;
+    text-align: right;
+    text-decoration: none;
+    border: 2px outset buttonface;
     color: buttontext;
     padding: 2px 6px 3px;
     -webkit-appearance: button;
@@ -210,13 +207,13 @@ h6 {
 }
 
 #StudentCheckIn {
-    margin-top:0px;
-    font-size:30px;
-    margin-left:50px;
-    margin-right:55px; 
-    text-align:right;
-    text-decoration:none; 
-    border:2px outset buttonface;
+    margin-top: 0px;
+    font-size: 30px;
+    margin-left: 50px;
+    margin-right: 55px;
+    text-align: right;
+    text-decoration: none;
+    border: 2px outset buttonface;
     color: buttontext;
     padding: 2px 6px 3px;
     -webkit-appearance: button;
@@ -224,12 +221,12 @@ h6 {
 }
 
 #NewClass {
-    margin-top:0px;
-    font-size:30px;
-    margin-left:10px;
-    text-align:center;
-    text-decoration:none; 
-    border:2px outset buttonface;
+    margin-top: 0px;
+    font-size: 30px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px outset buttonface;
     color: buttontext;
     padding: 2px 6px 3px;
     -webkit-appearance: button;
@@ -237,51 +234,62 @@ h6 {
 }
 
 #Public {
-    margin-top:opx;
+    margin-top: opx;
     margin-right: 0px;
-    text-align:right;
+    text-align: right;
     border
 }
 
 #NewClass {
-    margin-top:opx;
+    margin-top: opx;
     margin-right: -70px;
-    text-align:center;
+    text-align: center;
 }
 
-
 .event {
-    border-radius:4px;
-    -webkit-border-radius:4px;
-    color:#FFFFFF;
-    font-size:12px;
-    margin:0px 30px;
-    padding:2px 0px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 12px;
+    margin: 0px 30px;
+    padding: 2px 0px;
 }
 
 .event.listening {
-    background-color:#333333;
-    display:block;
+    background-color: #333333;
+    display: block;
 }
 
 .event.received {
-    background-color:#4B946A;
-    display:none;
+    background-color: #4B946A;
+    display: none;
 }
 
 @keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
+    from {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1.0;
+    }
 }
- 
+
 @-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
+    from {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1.0;
+    }
 }
- 
+
 .blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
+    animation: fade 3000ms infinite;
+    -webkit-animation: fade 3000ms infinite;
 }

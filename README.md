@@ -61,7 +61,9 @@ To set up a quick feedback loop using the Ripple emulator:
 
 1. Start a local file server:
 
-            cordova serve android
+            cordova serve ios
+
+Make sure you have /usr/local/share/npm/bin if see a "command not found" error.
 
 2. Hit the server (usually http:://localhost:8000).
 3. If you have not enabled the Ripple extention yet, click on its icon and select Enable.
