@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Arrive Home</title>
-    </head>
-    <body>
-        <div class="HomePrivate">
-            <h3>Welcome!</h3><br><br>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <title>Arrive</title>
+</head>
+<body>
+    <div class="app">
+            <h3>Welcome!</h3><br>
             <h4>How many people will be using this device?</h4>
-                        
-            <div id="navButtons">
-                <a href="PersonalStudentLogIn.html"><img id="single" src="img/single.jpg"></a>
-                <a id="multiple" href="#"><img src="img/multiple.jpg"></a>
-            </div>
-        </div>
-    </body>
+    <div id="navButtons">
+        <a href="PersonalStudentLogIn.html"><img id="single" src="img/single.jpg"></a>
+        <a href="AdminLogin.html"><img id="multiple" href="#"><img src="img/multiple.jpg"></a>
+    </div>
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<!--<script type="text/javascript" src="js/stackmob-js-0.9.2-bundled-min.js"></script>-->
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    app.initialize();
+</script>
+</body>
 </html>
