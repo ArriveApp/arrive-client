@@ -134,16 +134,18 @@ h2 {
 }
 
 h3 {
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 3em;
     text-transform: uppercase;
 }
 
 h4 {
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
     margin-top: 0px;
+    margin-left: 50px;
+    margin-right: 50px;
     text-transform: uppercase;
 }
 
