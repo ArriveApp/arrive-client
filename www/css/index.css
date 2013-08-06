@@ -138,10 +138,11 @@ h2 {
 }
 
 h3 {
-    font-size: 23px;
+    font-size: 25px;
     text-align: center;
-    margin-top: 5em;
+    margin-top: 85px;
     text-transform: capitalize;
+    color:#00a651;
 }
 
 h4 {
