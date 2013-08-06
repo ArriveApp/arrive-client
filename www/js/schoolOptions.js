@@ -1,6 +1,5 @@
 
-function populateSchoolDropdown(data) {
-    var schools = $.parseJSON(data);
+function populateSchoolDropdown(schools) {
     console.log(schools);
     $.each(schools, function (index, school) {
         debugger;
@@ -19,7 +18,7 @@ function makeRequest() {
     var school_url = "/schools/all";
 
     $.get(server_url + school_url, function(stringResponse) {
-        debugger;
+        console.log(stringResponse);
         populateSchoolDropdown(stringResponse);
     });
 }
