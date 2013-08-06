@@ -173,14 +173,14 @@ h6 {
 }
 
 h7 {
+
 text-size: 19px;
+color: #1328e6;
+font-weight: bold;
 text-align: center;
-margin-top: 85px;
+margin-top:3em;
 text-transform: capitalize;
-color:#1328e6;
-
 }
-
 /*--------------------------------------------------------------------------------------------------------*/
 
 #registration {
