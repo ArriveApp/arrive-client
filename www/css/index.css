@@ -89,10 +89,26 @@ body {
     height:50px;
     width:400px;
     text-align: center;
-    padding: 70px 0 0 0; /* image height is 200px (bottom 20px are overlapped with text) */
+    padding: 78px 0 0 0; /* image height is 200px (bottom 20px are overlapped with text) */
     /* offset horizontal: half of text area width */
     margin: -114px 0 0 -200px; /* offset vertical: half of image height and text area height */
     /* offset horizontal: half of text area width */
+}
+
+.HomePrivate2{
+background: url(/img/logo.png) no-repeat center top; /* 170px x 200px */
+ background-size: 100%;
+ font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+ position: absolute;
+ left:50%;
+ top:25%;
+ height:50px;
+ width:400px;
+ text-align: center;
+ padding: 171px 0 0 0; /* image height is 200px (bottom 20px are overlappe    d with text) */
+ /* offset horizontal: half of text area width */
+ margin: -114px 0 0 -200px; /* offset vertical: half of image height and     text area height */
+ /* offset horizontal: half of text area width */
 }
 
 .PublicHome {
@@ -183,7 +199,7 @@ text-transform: capitalize;
 }
 
 h8 {
-font-size: 19px;
+font-size: 15px;
 color: black;
 font-weight: bold;
 text-align:center:
@@ -345,7 +361,7 @@ text-transform: capitalize;
 #NewClass:active {
    border-top-color: #1b435e;
    background: #1b435e;
-   }
+ }  
 
     margin-top: 12px;
     font-size: 22px;
@@ -354,7 +370,6 @@ text-transform: capitalize;
     text-decoration: none;
     border: 2px outset buttonface;
     color: white;
-
 }
 
 #schoolSelector {
