@@ -154,11 +154,12 @@ h2 {
 }
 
 h3 {
-    text-size: 19px;
+
     text-align: center;
     margin-top: 85px;
     text-transform: capitalize;
     color:#00a651;
+    
 }
 
 h4 {
@@ -203,8 +204,6 @@ font-size: 15px;
 color: black;
 font-weight: bold;
 text-align:center:
-margin-top: 2em;
-text-transform: capitalize;
  
 }
 
