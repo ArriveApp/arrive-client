@@ -138,7 +138,7 @@ h2 {
 }
 
 h3 {
-
+    text-size: 19px;
     text-align: center;
     margin-top: 85px;
     text-transform: capitalize;
@@ -170,6 +170,15 @@ h6 {
     margin-left: 70px;
     margin-right: 50px;
     margin-top: -20px;
+}
+
+h7 {
+text-size: 19px;
+text-align: center;
+margin-top: 85px;
+text-transform: capitalize;
+color:#1328e6;
+
 }
 
 /*--------------------------------------------------------------------------------------------------------*/
