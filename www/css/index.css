@@ -206,30 +206,85 @@ h6 {
 }
 
 #StudentCheckIn {
-    margin-top: 0px;
-    font-size: 30px;
-    margin-left: 50px;
-    margin-right: 55px;
-    text-align: right;
-    text-decoration: none;
-    border: 2px outset buttonface;
-    color: buttontext;
-    padding: 2px 6px 3px;
-    -webkit-appearance: button;
-    font-weight:;
-}
+  border-top: 1px solid #00a650;
+   background: #00a650;
+   background: -webkit-gradient(linear, left top, left bottom, from(#00a650), to(#00a650));
+   background: -webkit-linear-gradient(top, #00a650, #00a650);
+   background: -moz-linear-gradient(top, #00a650, #00a650);
+   background: -ms-linear-gradient(top, #00a650, #00a650);
+   background: -o-linear-gradient(top, #00a650, #00a650);
+   padding: 5px 10px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #ffffff;
+   font-size: 20px;
+   font-family: Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+#StudentCheckIn:hover {
+   border-top-color: #1328e6;
+   background: #1328e6;
+   color: #ccc;
+   }
+#StudentCheckIn:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
 
-#NewClass {
-    margin-top: 0px;
-    font-size: 30px;
-    margin-left: 10px;
+    margin-top: 12px;
+    font-size: 22px;
+   
     text-align: center;
     text-decoration: none;
     border: 2px outset buttonface;
-    color: buttontext;
-    padding: 2px 6px 3px;
-    -webkit-appearance: button;
-    font-weight:;
+    color: white;
+}
+
+#NewClass {
+      border-top: 1px solid #00a650;
+   background: #00a650;
+   background: -webkit-gradient(linear, left top, left bottom, from(#00a650), to(#00a650));
+   background: -webkit-linear-gradient(top, #00a650, #00a650);
+   background: -moz-linear-gradient(top, #00a650, #00a650);
+   background: -ms-linear-gradient(top, #00a650, #00a650);
+   background: -o-linear-gradient(top, #00a650, #00a650);
+   padding: 5px 10px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #ffffff;
+   font-size: 20px;
+   font-family: Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+#NewClass:hover {
+   border-top-color: #1328e6;
+   background: #1328e6;
+   color: #ccc;
+   }
+#NewClass:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+
+    margin-top: 12px;
+    font-size: 22px;
+   
+    text-align: center;
+    text-decoration: none;
+    border: 2px outset buttonface;
+    color: white;
 }
 
 #Public {
@@ -240,22 +295,86 @@ h6 {
 }
 
 #NewClass {
-    margin-top: opx;
-    margin-right: -70px;
-    text-align: center;
-}
+  border-top: 1px solid #00a650;
+   background: #00a650;
+   background: -webkit-gradient(linear, left top, left bottom, from(#00a650), to(#00a650));
+   background: -webkit-linear-gradient(top, #00a650, #00a650);
+   background: -moz-linear-gradient(top, #00a650, #00a650);
+   background: -ms-linear-gradient(top, #00a650, #00a650);
+   background: -o-linear-gradient(top, #00a650, #00a650);
+   padding: 5px 10px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #ffffff;
+   font-size: 20px;
+   font-family: Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+#sNewClass:hover {
+   border-top-color: #1328e6;
+   background: #1328e6;
+   color: #ccc;
+   }
+#NewClass:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
 
-#schoolSelector {
     margin-top: 12px;
     font-size: 22px;
    
     text-align: center;
     text-decoration: none;
     border: 2px outset buttonface;
-    color: buttontext;
-    
-    -webkit-appearance: button;
-    font-weight:;
+    color: white;
+
+}
+
+#schoolSelector {
+   border-top: 1px solid #00a650;
+   background: #00a650;
+   background: -webkit-gradient(linear, left top, left bottom, from(#00a650), to(#00a650));
+   background: -webkit-linear-gradient(top, #00a650, #00a650);
+   background: -moz-linear-gradient(top, #00a650, #00a650);
+   background: -ms-linear-gradient(top, #00a650, #00a650);
+   background: -o-linear-gradient(top, #00a650, #00a650);
+   padding: 5px 10px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #ffffff;
+   font-size: 20px;
+   font-family: Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+#schoolSelector:hover {
+   border-top-color: #1328e6;
+   background: #1328e6;
+   color: #ccc;
+   }
+#schoolSelector:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+
+    margin-top: 12px;
+    font-size: 22px;
+   
+    text-align: center;
+    text-decoration: none;
+    border: 2px outset buttonface;
+    color: white;
 }
 
 
