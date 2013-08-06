@@ -198,32 +198,6 @@ text-transform: capitalize;
     margin-top: 20px;
 }
 
-#Personal {
-    margin-top: 0px;
-    font-size: 30px;
-    margin-left: 70px;
-    text-align: right;
-    text-decoration: none;
-    border: 2px outset buttonface;
-    color: buttontext;
-    padding: 2px 6px 3px;
-    -webkit-appearance: button;
-    font-weight:;
-
-}
-
-#StudentLogIn {
-    margin-top: 0px;
-    font-size: 30px;
-    margin-left: 70px;
-    text-align: right;
-    text-decoration: none;
-    border: 2px outset buttonface;
-    color: buttontext;
-    padding: 2px 6px 3px;
-    -webkit-appearance: button;
-    font-weight:;
-}
 
 #StudentCheckIn {
   border-top: 1px solid #00a650;
@@ -257,17 +231,44 @@ text-transform: capitalize;
    background: #1b435e;
    }
 
-    margin-top: 12px;
-    font-size: 22px;
-   
-    text-align: center;
-    text-decoration: none;
-    border: 2px outset buttonface;
-    color: white;
-}
+
+#NotYourSchool { 
+   border-top: 1px solid #f21818;
+   background: #f21818;
+   background: -webkit-gradient(linear, left top, left bottom, from(#f21818), to(#f21818));
+   background: -webkit-linear-gradient(top, #f21818, #f21818);
+   background: -moz-linear-gradient(top, #f21818, #f21818);
+   background: -ms-linear-gradient(top, #f21818, #f21818);
+   background: -o-linear-gradient(top, #f21818, #f21818);
+   padding: 5px 10px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #ffffff;
+   font-size: 9px;
+   font-family: Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+#NotYourSchool:hover {
+   border-top-color: #1328e6;
+   background: #1328e6;
+   color: #ccc;
+   }
+#NotYourSchool:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+
+
+
 
 #NewClass {
-      border-top: 1px solid #00a650;
+   border-top: 1px solid #00a650;
    background: #00a650;
    background: -webkit-gradient(linear, left top, left bottom, from(#00a650), to(#00a650));
    background: -webkit-linear-gradient(top, #00a650, #00a650);
