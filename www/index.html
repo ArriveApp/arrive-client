@@ -9,13 +9,15 @@
     <title>Arrive</title>
 </head>
 <body>
-<div class="app">
-    <h3>Welcome!</h3><br>
-    <h4>How many people will use this device?</h4>
+<div id="main">
+    <div class="app">
+        <h3>Welcome!</h3><br>
+        <h4>How many people will use this device?</h4>
 
-    <div id="navButtons">
-        <a href="PersonalTwo.html"><img id="single" width=140 height=155 src="img/single.jpg"></a>
-        <a href="PublicTwo.html"><img id="multiple" width=140 height=155 src="img/multiple.jpg"></a>
+        <div id="navButtons">
+            <a id="home_personal" href="#"><img id="single" width=140 height=155 src="img/single.jpg"></a>
+            <a href="PublicTwo.html"><img id="multiple" width=140 height=155 src="img/multiple.jpg"></a>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="cordova.js"></script>
@@ -24,8 +26,22 @@
 <script type="text/javascript" src="js/backbone-min.js"></script>
 <!--<script type="text/javascript" src="js/stackmob-js-0.9.2-bundled-min.js"></script>-->
 <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript">
     app.initialize();
 </script>
+
+<!-- templates -->
+<script type="text/template" id="template-home">
+    <div class="home_personal">
+        <h3>Welcome Student!</h3>
+
+        <h5> <input placeholder="Email..." type="email" name="email" id="email"></h5>
+        <h5> <input placeholder="PIN..." type="text" name="Pin" id="password" maxlength="4"></h5>
+
+        <a href="PersonalThree.html" id="student_check_in">Student Log In</a>
+    </div>
+</script>
+
 </body>
 </html>
