@@ -95,6 +95,20 @@ body {
     /* offset horizontal: half of text area width */
 }
 
+select {
+    width: 26em !important;
+}
+
+select option{
+    width: 26em !important;
+}
+
+input {
+   width: 26em;
+}
+
+
+
 button {
     font-size: 30px;
 }
@@ -152,33 +166,6 @@ h5 {
     margin-left: 1em;
     margin-right: 1em;
     margin-top: 1em;
-}
-
-h7 {
-
-    font-size: 19px;
-    color: #1328e6;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 3em;
-    text-transform: capitalize;
-}
-
-h8 {
-    font-size: 15px;
-    color: black;
-    font-weight: bold;
-    text-align: center;
-
-}
-
-h9 {
-    text-align: center;
-    margin-top: 200px;
-    text-transform: capitalize;
-    color: #1328e6;
-    padding-top: 100px;
-    font-weight: bold;
 }
 
 /*--------------------------------------------------------------------------------------------------------*/
