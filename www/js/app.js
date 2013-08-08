@@ -2,8 +2,9 @@ var Router = Backbone.Router.extend({
     routes: {
         "": "index",
         "home_personal": "homePersonal",
-        "login" : "login",
-        "check_in": "checkIn"
+        "login": "login",
+        "check_in": "checkIn",
+        "new_class": "newClass"
     },
 
     index: function () {
@@ -14,11 +15,16 @@ var Router = Backbone.Router.extend({
         new HomePersonal({el: $("#main")});
     },
 
-    login: function(){
-       new CheckIn({el: $("#main")});
+    login: function () {
+        new CheckIn({el: $("#main")});
     },
 
-    checkIn: function(){
+    checkIn: function () {
+        new NewClass({el: $("#main")});
+    },
+
+    newClass: function () {
+        new CheckIn({el: $("#main")});
     }
 });
 
@@ -48,7 +54,7 @@ var HomePersonal = Backbone.View.extend({
         this.$el.html(this.template());
         return this;
     },
-    login: function() {
+    login: function () {
         console.log("navigating to /login");
         router.navigate("login", {trigger: true, replace: true});
     }
@@ -70,8 +76,29 @@ var CheckIn = Backbone.View.extend({
         return this;
     },
 
-    checkIn: function() {
+    checkIn: function () {
         router.navigate("check_in", {trigger: true, replace: true});
+    }
+});
+
+var NewClass = Backbone.View.extend({
+    initialize: function () {
+        this.template = _.template($('#template-student-new-class').html());
+
+        this.render();
+    },
+
+    events: {
+        'click a[name=new_class]': 'newClass'
+    },
+
+    render: function () {
+        this.$el.html(this.template());
+        return this;
+    },
+
+    newClass: function () {
+        router.navigate("new_class", {trigger: true, replace: true});
     }
 });
 
