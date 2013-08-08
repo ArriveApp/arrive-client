@@ -51,10 +51,10 @@ body {
     background-size: 100%;
     font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     position: absolute;
-    left:50%;
-    top:25%;
-    height:50px;
-    width:400px;
+    left: 50%;
+    top: 25%;
+    height: 50px;
+    width: 400px;
     text-align: center;
     padding: 70px 0 0 0; /* image height is 200px (bottom 20px are overlapped with text) */
     margin: -114px 0 0 -200px; /* offset vertical: half of image height and text area height */
@@ -79,48 +79,20 @@ body {
     /* offset horizontal: half of text area width */
 }
 
-.HomePrivate {
+.home_personal {
     background: url(/img/logo.png) no-repeat center top; /* 170px x 200px */
     background-size: 100%;
     font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     position: absolute;
-    left:50%;
-    top:25%;
-    height:50px;
-    width:400px;
+    left: 50%;
+    top: 25%;
+    height: 50px;
+    width: 400px;
     text-align: center;
     padding: 78px 0 0 0; /* image height is 200px (bottom 20px are overlapped with text) */
     /* offset horizontal: half of text area width */
     margin: -114px 0 0 -200px; /* offset vertical: half of image height and text area height */
     /* offset horizontal: half of text area width */
-}
-
-.HomePrivate2{
-background: url(/img/logo.png) no-repeat center top; /* 170px x 200px */
- background-size: 100%;
- font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
- position: absolute;
- left:50%;
- top:25%;
- height:50px;
- width:400px;
- text-align: center;
- padding: 171px 0 0 0; /* image height is 200px (bottom 20px are overlappe    d with text) */
- /* offset horizontal: half of text area width */
- margin: -114px 0 0 -200px; /* offset vertical: half of image height and     text area height */
- /* offset horizontal: half of text area width */
-}
-
-.PublicHome {
-    background: url(../img/b.png) no-repeat center top; /* 170px x 200px */
-    background-size: 130%;
-    margin-right: auto;
-    margin-left: 10px; /* position in the center of the screen */
-    top: 0%;
-    height: 100px; /* text area height */
-    width: 600px; /* text area width */
-    padding: 100px 0px 0px 0px; /* image height is 200px (bottom 20px are overlapped with text) */
-
 }
 
 button {
@@ -147,7 +119,7 @@ h1 {
 }
 
 h2 {
-    color:#00a651;
+    color: #00a651;
     text-align: center;
     margin-top: 4em;
 }
@@ -155,9 +127,9 @@ h2 {
 h4 {
     text-align: center;
     text-transform: capitalize;
-    color:#00a651;
-   	margin-left: 2em;
-    margin-right: 2em;	
+    color: #00a651;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 h3 {
@@ -170,7 +142,7 @@ h3 {
 }
 
 .school {
-    color:#1328e6;
+    color: #1328e6;
 }
 
 h5 {
@@ -184,27 +156,27 @@ h5 {
 
 h7 {
 
-font-size: 19px;
-color: #1328e6;
-font-weight: bold;
-text-align: center;
-margin-top:3em;
-text-transform: capitalize;
+    font-size: 19px;
+    color: #1328e6;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 3em;
+    text-transform: capitalize;
 }
 
 h8 {
-font-size: 15px;
-color: black;
-font-weight: bold;
-text-align:center;
- 
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+
 }
 
 h9 {
     text-align: center;
     margin-top: 200px;
     text-transform: capitalize;
-    color:#1328e6;
+    color: #1328e6;
     padding-top: 100px;
     font-weight: bold;
 }
@@ -215,205 +187,141 @@ h9 {
     margin-top: 20px;
 }
 
-
-#StudentCheckIn {
-  border-top: 1px solid #00a650;
-   background: #00a650;
-   background: -webkit-gradient(linear, left top, left bottom, from(#00a650), to(#00a650));
-   background: -webkit-linear-gradient(top, #00a650, #00a650);
-   background: -moz-linear-gradient(top, #00a650, #00a650);
-   background: -ms-linear-gradient(top, #00a650, #00a650);
-   background: -o-linear-gradient(top, #00a650, #00a650);
-   padding: 5px 10px;
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   border-radius: 8px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: #ffffff;
-   font-size: 20px;
-   font-family: Helvetica, Arial, Sans-Serif;
-   text-decoration: none;
-   vertical-align: middle;
-   }
-#StudentCheckIn:hover {
-   border-top-color: #1328e6;
-   background: #1328e6;
-   color: #ccc;
-   }
-#StudentCheckIn:active {
-   border-top-color: #1b435e;
-   background: #1b435e;
-   }
-
-
-#NotYourSchool { 
-   border-top: 1px solid #f21818;
-   background: #f21818;
-   background: -webkit-gradient(linear, left top, left bottom, from(#f21818), to(#f21818));
-   background: -webkit-linear-gradient(top, #f21818, #f21818);
-   background: -moz-linear-gradient(top, #f21818, #f21818);
-   background: -ms-linear-gradient(top, #f21818, #f21818);
-   background: -o-linear-gradient(top, #f21818, #f21818);
-   padding: 5px 2px;
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   border-radius: 8px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: #ffffff;
-   font-size: 11px;
-   font-family: Helvetica, Arial, Sans-Serif;
-   text-decoration: none;
-   vertical-align: middle;
-   }
-#NotYourSchool:hover {
-   border-top-color: #1328e6;
-   background: #1328e6;
-   color: #ccc;
-   }
-#NotYourSchool:active {
-   border-top-color: #1b435e;
-   background: #1b435e;
-   }
-
-
-
-
-#NewClass {
-   border-top: 1px solid #00a650;
-   background: #00a650;
-   background: -webkit-gradient(linear, left top, left bottom, from(#00a650), to(#00a650));
-   background: -webkit-linear-gradient(top, #00a650, #00a650);
-   background: -moz-linear-gradient(top, #00a650, #00a650);
-   background: -ms-linear-gradient(top, #00a650, #00a650);
-   background: -o-linear-gradient(top, #00a650, #00a650);
-   padding: 5px 10px;
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   border-radius: 8px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: #ffffff;
-   font-size: 20px;
-   font-family: Helvetica, Arial, Sans-Serif;
-   text-decoration: none;
-   vertical-align: middle;
-   }
-#NewClass:hover {
-   border-top-color: #1328e6;
-   background: #1328e6;
-   color: #ccc;
-   }
-#NewClass:active {
-   border-top-color: #1b435e;
-   background: #1b435e;
-   }
-
-    margin-top: 12px;
-    font-size: 22px;
-   
-    text-align: center;
+#student_check_in {
+    border-top: 1px solid #00a650;
+    background: #00a650;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00a650), to(#00a650));
+    background: -webkit-linear-gradient(top, #00a650, #00a650);
+    background: -moz-linear-gradient(top, #00a650, #00a650);
+    background: -ms-linear-gradient(top, #00a650, #00a650);
+    background: -o-linear-gradient(top, #00a650, #00a650);
+    padding: 5px 10px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: Helvetica, Arial, Sans-Serif;
     text-decoration: none;
-    border: 2px outset buttonface;
-    color: white;
+    vertical-align: middle;
 }
 
-#Public {
-    margin-top: opx;
-    margin-right: 0px;
-    text-align: right;
-    border
+#student_check_in:hover {
+    border-top-color: #1328e6;
+    background: #1328e6;
+    color: #ccc;
 }
 
-#NewClass {
-  border-top: 1px solid #00a650;
-   background: #00a650;
-   background: -webkit-gradient(linear, left top, left bottom, from(#00a650), to(#00a650));
-   background: -webkit-linear-gradient(top, #00a650, #00a650);
-   background: -moz-linear-gradient(top, #00a650, #00a650);
-   background: -ms-linear-gradient(top, #00a650, #00a650);
-   background: -o-linear-gradient(top, #00a650, #00a650);
-   padding: 5px 10px;
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   border-radius: 8px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: #ffffff;
-   font-size: 20px;
-   font-family: Helvetica, Arial, Sans-Serif;
-   text-decoration: none;
-   vertical-align: middle;
-   }
-#sNewClass:hover {
-   border-top-color: #1328e6;
-   background: #1328e6;
-   color: #ccc;
-   }
-#NewClass:active {
-   border-top-color: #1b435e;
-   background: #1b435e;
- }  
+#student_check_in:active {
+    border-top-color: #1b435e;
+    background: #1b435e;
+}
 
-    margin-top: 12px;
-    font-size: 22px;
-   
-    text-align: center;
+#not_your_school {
+    border-top: 1px solid #f21818;
+    background: #f21818;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f21818), to(#f21818));
+    background: -webkit-linear-gradient(top, #f21818, #f21818);
+    background: -moz-linear-gradient(top, #f21818, #f21818);
+    background: -ms-linear-gradient(top, #f21818, #f21818);
+    background: -o-linear-gradient(top, #f21818, #f21818);
+    padding: 5px 2px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+    color: #ffffff;
+    font-size: 11px;
+    font-family: Helvetica, Arial, Sans-Serif;
     text-decoration: none;
-    border: 2px outset buttonface;
-    color: white;
+    vertical-align: middle;
 }
 
-#schoolSelector {
-   border-top: 1px solid #00a650;
-   background: #00a650;
-   background: -webkit-gradient(linear, left top, left bottom, from(#00a650), to(#00a650));
-   background: -webkit-linear-gradient(top, #00a650, #00a650);
-   background: -moz-linear-gradient(top, #00a650, #00a650);
-   background: -ms-linear-gradient(top, #00a650, #00a650);
-   background: -o-linear-gradient(top, #00a650, #00a650);
-   padding: 5px 10px;
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   border-radius: 8px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: #ffffff;
-   font-size: 20px;
-   font-family: Helvetica, Arial, Sans-Serif;
-   text-decoration: none;
-   vertical-align: middle;
-   }
-#schoolSelector:hover {
-   border-top-color: #1328e6;
-   background: #1328e6;
-   color: #ccc;
-   }
-#schoolSelector:active {
-   border-top-color: #1b435e;
-   background: #1b435e;
-   }
+#not_your_school:hover {
+    border-top-color: #1328e6;
+    background: #1328e6;
+    color: #ccc;
+}
 
-    margin-top: 12px;
-    font-size: 22px;
-   
-    text-align: center;
+#not_your_school:active {
+    border-top-color: #1b435e;
+    background: #1b435e;
+}
+
+#new_class {
+    border-top: 1px solid #00a650;
+    background: #00a650;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00a650), to(#00a650));
+    background: -webkit-linear-gradient(top, #00a650, #00a650);
+    background: -moz-linear-gradient(top, #00a650, #00a650);
+    background: -ms-linear-gradient(top, #00a650, #00a650);
+    background: -o-linear-gradient(top, #00a650, #00a650);
+    padding: 5px 10px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: Helvetica, Arial, Sans-Serif;
     text-decoration: none;
-    border: 2px outset buttonface;
-    color: white;
+    vertical-align: middle;
 }
 
+#new_class:hover {
+    border-top-color: #1328e6;
+    background: #1328e6;
+    color: #ccc;
+}
+
+#new_class:active {
+    border-top-color: #1b435e;
+    background: #1b435e;
+}
+
+#school_selector {
+    border-top: 1px solid #00a650;
+    background: #00a650;
+    background: -webkit-gradient(linear, left top, left bottom, from(#00a650), to(#00a650));
+    background: -webkit-linear-gradient(top, #00a650, #00a650);
+    background: -moz-linear-gradient(top, #00a650, #00a650);
+    background: -ms-linear-gradient(top, #00a650, #00a650);
+    background: -o-linear-gradient(top, #00a650, #00a650);
+    padding: 5px 10px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+#school_selector:hover {
+    border-top-color: #1328e6;
+    background: #1328e6;
+    color: #ccc;
+}
+
+#school_selector:active {
+    border-top-color: #1b435e;
+    background: #1b435e;
+}
 
 .event {
     border-radius: 4px;
@@ -463,7 +371,6 @@ h9 {
     -webkit-animation: fade 3000ms infinite;
 }
 
-
 .navButtons {
     margin-top: 20px;
     background-size: 50%;
@@ -474,8 +381,8 @@ h9 {
     background-size: 50%;
 }
 
-.selectSchool {
-     font-size: 20px;
+.select_school {
+    font-size: 20px;
     font-weight: normal;
     text-align: center;
     margin-left: 130px;
