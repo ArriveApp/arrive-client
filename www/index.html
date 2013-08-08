@@ -16,10 +16,11 @@
 
         <div id="navButtons">
             <a id="home_personal" href="#"><img id="single" width=140 height=155 src="img/single.jpg"></a>
-            <a href="PublicTwo.html"><img id="multiple" width=140 height=155 src="img/multiple.jpg"></a>
+            <a id="home_multiple"><img id="multiple" width=140 height=155 src="img/multiple.jpg"></a>
         </div>
     </div>
 </div>
+
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="js/lodash.min.js"></script>
@@ -32,6 +33,66 @@
 </script>
 
 <!-- templates -->
+<script type="text/template" id="template-home-multiple">
+    <div class="home_personal">
+        <h3>Hello!</h3>
+        <h5>
+            <form>
+                <select id="schoolDropdown">
+                    <option value="#">Please select your school...</option>
+                    <option value="Hogwarts">Hogwarts</options>
+                    <option value="Winterfell">Winterfell</option>
+                    <option value="Nightingale">Nightingale</option>
+                    <option value="St. Claire's">St. Claires</option>
+                </select>
+                <br><br>
+                <a href="#" name="location" id="student_check_in">Set Location</a>
+            </form>
+        </h5>
+    </div>
+</script>
+
+<script type="text/template" id="template-location">
+    <div class="home_personal">
+        <h3 class="school"> The Nightingale-Bamford School</h3>
+        <h4><a href="#" name="home_multiple" id="not_your_school">Not your school?</a></h4>
+        <h5>
+            <form>
+                <select id="courseDropdown">
+                    <option value="#">Select your class...</option>
+                    <option value="Calculus">Calculus</option>
+                    <option value="French Culture and Civilization">French Culture and Civilization</option>
+                    <option value="Physics">Physics</option>
+                </select>
+                <br><br>
+                <input placeholder="Insert Your PIN..." type="text" name="Pin" maxlength="4">
+                <br><br>
+                <a href="#" name="check_in_multiple" id="student_check_in">Check In</a>
+            </form>
+        </h5>
+    </div>
+</script>
+
+<script type="text/template" id="template-confirmation-multiple">
+    <div class="home_personal">
+        <h3 class="school">The Nightingale-Bamford School</h3><h4> Alex, thanks for checking in!</h4>
+        <h5>
+            <form>
+                <select>
+                    <!-- <option value"#">Select your class...</option> -->
+                    <option value="French Culture and Civilization">French Culture and Civilization</option>
+                    <option value="Calculus">Calculus</option>
+                    <option value="Physics">Physics</option>
+                </select>
+                <br><br>
+                <input placeholder="Insert your PIN..." type="text" name="Pin" maxlength="4">
+                <br><br>
+                <a href="#" name="confirmation_multiple" id="student_check_in">Check In</a>
+            </form>
+        </h5>
+    </div>
+</script>
+
 <script type="text/template" id="template-home">
     <div class="home_personal">
         <h3>Welcome Student!</h3>
@@ -44,7 +105,7 @@
 </script>
 
 <script type="text/template" id="template-student-check-in">
-    <div class="check_in">
+    <div class="home_personal">
         <h3>Welcome Alex!</h3>
         <h4 class="school">The Nightingale-Bamford School</h4><br><br>
         <h4>Please select your class:</h4>
@@ -62,7 +123,7 @@
 </script>
 
 <script type="text/template" id="template-student-new-class">
-    <div class="new_class">
+    <div class="home_personal">
         <h3>French Culture and Civilization</h3><br>
         <h4>Thanks! You've successfully checked in to French Culture and Civilization. <br>
             Have a great class!
