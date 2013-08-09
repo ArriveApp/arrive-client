@@ -129,7 +129,7 @@ var HomeMultiple = Backbone.View.extend({
         this.template = _.template($('#template-home-multiple').html());
 		this.render();
 		$(document).ready(function(){
-			makeRequest();
+			makeRequest("/schools/all");
 		});
     },
 

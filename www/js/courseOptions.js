@@ -1,4 +1,4 @@
-function populateSchoolDropdown(courses) {
+function populateCourseDropdown(courses) {
     console.log(courses);
     $.each(courses, function (index, course) {
         debugger;
@@ -13,8 +13,6 @@ $(document).ready(function(){
 });
 
 function makeRequest() {
-    alert(location.search);
-
     var server_url = "http://localhost:3000";
     var course_url = "/course/4";
 

@@ -1,20 +1,19 @@
 
-function populateSchoolDropdown(schools) {
-    console.log(schools);
-    $.each(schools, function (index, school) {
-        console.log(school);
-        console.log(school.id);
-        $('#schoolDropdown').append('<option value=\"' + school.id + '\">' + school.name + '</option>');
+function populateSomeDropdown(dropDown, options) {
+    console.log(options);
+    $.each(options, function (index, option) {
+        console.log(option);
+        console.log(option.id);
+        $(dropDown).append('<option value=\"' + option.id + '\">' + option.name + '</option>');
     });
 }
 
-function makeRequest() {
+function makeRequest(model_url) {
     var server_url = "http://localhost:3000";
-    var school_url = "/schools/all";
 
-    $.get(server_url + school_url, function(stringResponse) {
+    $.get(server_url + model_url, function(stringResponse) {
         console.log(stringResponse);
-        populateSchoolDropdown(stringResponse);
+        populateSomeDropdown('#schoolDropdown', stringResponse);
     });
 }
 
