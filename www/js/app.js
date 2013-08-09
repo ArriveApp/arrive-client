@@ -129,7 +129,7 @@ var HomeMultiple = Backbone.View.extend({
         this.template = _.template($('#template-home-multiple').html());
 		this.render();
 		$(document).ready(function(){
-			makeRequest("/schools/all");
+			makeRequest("/schools/all", "#schoolDropdown");
 		});
     },
 
@@ -151,6 +151,9 @@ var SchoolLocation = Backbone.View.extend({
     initialize: function () {
         this.template = _.template($('#template-location').html());
         this.render();
+        $(document).ready(function(){
+            makeRequest("/schools/2/courses/all","#courseDropdown");
+        });
     },
 
     events: {

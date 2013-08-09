@@ -8,12 +8,12 @@ function populateSomeDropdown(dropDown, options) {
     });
 }
 
-function makeRequest(model_url) {
+function makeRequest(model_url, dropDown) {
     var server_url = "http://localhost:3000";
 
     $.get(server_url + model_url, function(stringResponse) {
         console.log(stringResponse);
-        populateSomeDropdown('#schoolDropdown', stringResponse);
+        populateSomeDropdown(dropDown, stringResponse);
     });
 }
 
