@@ -31,15 +31,15 @@ var Router = Backbone.Router.extend({
         new CheckIn({el: $("#main")});
     },
 
-    homeMultiple: function() {
+    homeMultiple: function () {
         new HomeMultiple({el: $("#main")});
     },
 
-    schoolLocation: function() {
+    schoolLocation: function () {
         new SchoolLocation({el: $("#main")});
     },
 
-    checkInMultiple: function() {
+    checkInMultiple: function () {
         new ConfirmationMultiple({el: $("#main")});
     }
 });
@@ -48,34 +48,38 @@ var MainView = Backbone.View.extend({
     initialize: function () {
     },
 
-    goToHomePersonal: function () {
-        router.navigate("home_personal", {trigger: true, replace: true});
-    },
-
-    goToHomeMultiple: function () {
-        router.navigate("home_multiple", {trigger: true, replace: true});
-    },
-
     events: {
-        'click #home_personal': 'goToHomePersonal',
-        'click #home_multiple': 'goToHomeMultiple'
+        'click #home_personal': 'homePersonal',
+        'click #home_multiple': 'homeMultiple'
+    },
+
+    homePersonal: function () {
+        ArriveApp.vent.trigger("navigate:home-personal");
+    },
+
+    homeMultiple: function () {
+        ArriveApp.vent.trigger("navigate:home-multiple");
     }
 });
 
 var HomePersonal = Backbone.View.extend({
     initialize: function () {
         this.template = _.template($('#template-home').html());
+
         this.render();
     },
+
     events: {
         'click a[name=login]': 'login'
     },
+
     render: function () {
         this.$el.html(this.template());
         return this;
     },
+
     login: function () {
-        router.navigate("login", {trigger: true, replace: true});
+        ArriveApp.vent.trigger("navigate:login");
     }
 });
 
@@ -95,7 +99,7 @@ var CheckIn = Backbone.View.extend({
     },
 
     checkIn: function () {
-        router.navigate("check_in", {trigger: true, replace: true});
+        ArriveApp.vent.trigger("navigate:check-in");
     }
 });
 
@@ -115,9 +119,10 @@ var NewClass = Backbone.View.extend({
     },
 
     newClass: function () {
-        router.navigate("new_class", {trigger: true, replace: true});
+        ArriveApp.vent.trigger("navigate:new-class");
     }
 });
+
 
 var HomeMultiple = Backbone.View.extend({
     initialize: function () {
@@ -135,7 +140,7 @@ var HomeMultiple = Backbone.View.extend({
     },
 
     location: function () {
-        router.navigate("location", {trigger: true, replace: true});
+        ArriveApp.vent.trigger("navigate:school-location");
     }
 });
 
@@ -156,11 +161,11 @@ var SchoolLocation = Backbone.View.extend({
     },
 
     checkInMultiple: function () {
-        router.navigate("check_in_multiple", {trigger: true, replace: true});
+        ArriveApp.vent.trigger("navigate:check-in-multiple");
     },
 
     homeMultiple: function () {
-        router.navigate("home_multiple", {trigger: true, replace: true});
+        ArriveApp.vent.trigger("navigate:home-multiple");
     }
 });
 
@@ -180,11 +185,64 @@ var ConfirmationMultiple = Backbone.View.extend({
     },
 
     confirmationMultiple: function () {
-        router.navigate("confirmation_multiple", {trigger: true, replace: true});
+        ArriveApp.vent.trigger("navigate:confirmation-multiple");
     }
 });
 
-var router = new Router();
-window.router = router;
+var ArriveApp = {
+    vent: _.extend({}, Backbone.Events),
+    router: new Router(),
+
+    init: function () {
+        _.bindAll(this);
+        this.addListeners();
+    },
+
+    addListeners: function () {
+        this.vent.on("navigate:home-personal", this.navigateHomePersonal);
+        this.vent.on("navigate:login", this.navigateLogin);
+        this.vent.on("navigate:check-in", this.navigateCheckIn);
+        this.vent.on("navigate:new-class", this.navigateNewClass);
+        this.vent.on("navigate:home-multiple", this.navigateHomeMultiple);
+        this.vent.on("navigate:school-location", this.navigateSchoolLocation);
+        this.vent.on("navigate:check-in-multiple", this.navigateCheckInMultiple);
+        this.vent.on("navigate:confirmation-multiple", this.navigateConfirmationMultiple);
+    },
+
+    navigateHomePersonal: function () {
+        this.router.navigate("home_personal", {trigger: true});
+    },
+
+    navigateLogin: function () {
+        this.router.navigate("login", {trigger: true});
+    },
+
+    navigateCheckIn: function () {
+        this.router.navigate("check_in", {trigger: true});
+    },
+
+    navigateNewClass: function () {
+        this.router.navigate("new_class", {trigger: true});
+    },
+
+    navigateHomeMultiple: function () {
+        this.router.navigate("home_multiple", {trigger: true});
+    },
+
+    navigateSchoolLocation: function () {
+        this.router.navigate("location", {trigger: true});
+    },
+
+    navigateCheckInMultiple: function () {
+        this.router.navigate("check_in_multiple", {trigger: true});
+    },
+
+    navigateConfirmationMultiple: function () {
+        this.router.navigate("confirmation_multiple", {trigger: true});
+    }
+}
+
+ArriveApp.init();
+window.App = ArriveApp;
 
 Backbone.history.start({pushState: true});
