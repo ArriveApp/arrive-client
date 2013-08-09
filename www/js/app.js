@@ -127,7 +127,10 @@ var NewClass = Backbone.View.extend({
 var HomeMultiple = Backbone.View.extend({
     initialize: function () {
         this.template = _.template($('#template-home-multiple').html());
-        this.render();
+		this.render();
+		$(document).ready(function(){
+			makeRequest();
+		});
     },
 
     events: {
