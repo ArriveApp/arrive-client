@@ -83,9 +83,15 @@ Arrive.view.NewClass = Backbone.View.extend({
 Arrive.view.HomeMultiple = Backbone.View.extend({
     initialize: function () {
         this.template = _.template($('#template-home-multiple').html());
+        _.bindAll(this);
+        this.loadCollection();
         this.render();
-        $(document).ready(function(){
-            makeRequest("/schools/all", "#schoolDropdown");
+    },
+
+    loadCollection: function () {
+        this.schools = new Arrive.collection.Schools();
+        this.schools.fetch({
+            success: this.loadSchools
         });
     },
 
@@ -96,6 +102,16 @@ Arrive.view.HomeMultiple = Backbone.View.extend({
     render: function () {
         this.$el.html(this.template());
         return this;
+    },
+
+    loadSchools: function () {
+        var $schools = this.$("#schools");
+        this.schools.forEach(function (school) {
+            $schools.append($('<option></option>')
+                .attr('value', school.get('id'))
+                .text(school.get('name'))
+            );
+        });
     },
 
     location: function () {

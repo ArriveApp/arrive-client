@@ -47,7 +47,7 @@ var Router = Backbone.Router.extend({
 window.Arrive = {
     vent: _.extend({}, Backbone.Events),
     router: new Router(),
-    server: "http://localhost:3000/",
+    server: "http://localhost:3000",
 
     init: function () {
         _.bindAll(this);
@@ -95,5 +95,13 @@ window.Arrive = {
 
     navigateConfirmationMultiple: function () {
         this.router.navigate("confirmation_multiple", {trigger: true});
+    }
+}
+
+// Utilities
+
+window.utils = {
+    url: function (path) {
+        return Arrive.server + '/' + path;
     }
 }
