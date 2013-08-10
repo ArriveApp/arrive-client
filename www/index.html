@@ -27,11 +27,14 @@
 <script type="text/javascript" src="js/backbone-min.js"></script>
 <!--<script type="text/javascript" src="js/stackmob-js-0.9.2-bundled-min.js"></script>-->
 <script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/app/app.js"></script>
+<script type="text/javascript" src="js/app/views.js"></script>
 <script type="text/javascript" src="js/schoolOptions.js"></script>
 <script type="text/javascript" src="js/courseOptions.js"></script>
 <script type="text/javascript">
     app.initialize();
+    Arrive.init();
+    Backbone.history.start({pushState: true});
 </script>
 
 <!-- templates -->
