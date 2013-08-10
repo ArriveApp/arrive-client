@@ -84,14 +84,14 @@ Arrive.view.HomeMultiple = Backbone.View.extend({
     initialize: function () {
         this.template = _.template($('#template-home-multiple').html());
         _.bindAll(this);
-        this.loadCollection();
+        this.loadSchools();
         this.render();
     },
 
-    loadCollection: function () {
+    loadSchools: function () {
         this.schools = new Arrive.collection.Schools();
         this.schools.fetch({
-            success: this.loadSchools
+            success: this.renderSchools
         });
     },
 
@@ -104,7 +104,7 @@ Arrive.view.HomeMultiple = Backbone.View.extend({
         return this;
     },
 
-    loadSchools: function () {
+    renderSchools: function () {
         var $schools = this.$("#schools");
         this.schools.forEach(function (school) {
             $schools.append($('<option></option>')
@@ -115,17 +115,30 @@ Arrive.view.HomeMultiple = Backbone.View.extend({
     },
 
     location: function () {
-        Arrive.vent.trigger("navigate:school-location");
+        var selectedSchool = this.selectedSchool();
+
+        // fetch courses before going to next page
+        selectedSchool.courses.fetch({
+            success: function () {
+                Arrive.vent.trigger("navigate:school-location", selectedSchool);
+            }
+        });
+    },
+
+    selectedSchool: function () {
+        var id = $("#schools option:selected").val();
+        return this.schools.get(id);
     }
 });
 
 Arrive.view.SchoolLocation = Backbone.View.extend({
-    initialize: function () {
+    initialize: function (options) {
         this.template = _.template($('#template-location').html());
+        _.bindAll(this);
+
+        this.school = options.school;
+
         this.render();
-        $(document).ready(function(){
-            makeRequest("/schools/2/courses/all","#courseDropdown");
-        });
     },
 
     events: {
@@ -134,7 +147,11 @@ Arrive.view.SchoolLocation = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(this.template());
+        // create a school json combining school model and courses collection
+        var school = this.school.toJSON();
+        school.courses = this.school.courses.toJSON();
+
+        this.$el.html(this.template(school));
         return this;
     },
 

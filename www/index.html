@@ -30,7 +30,6 @@
 <script type="text/javascript" src="js/app/app.js"></script>
 <script type="text/javascript" src="js/app/views.js"></script>
 <script type="text/javascript" src="js/app/models.js"></script>
-<script type="text/javascript" src="js/courseOptions.js"></script>
 <script type="text/javascript">
     app.initialize();
     Arrive.init();
@@ -55,13 +54,13 @@
 
 <script type="text/template" id="template-location">
     <div class="home_personal">
-        <h3 class="school"> The Nightingale-Bamford School</h3>
+        <h3 class="school"><%= name %></h3>
         <h4><a href="#" name="home_multiple" id="not_your_school">Not your school?</a></h4>
         <h5>
             <form>
-                <select id="courseDropdown">
+                <select id="courses">
                     <option value="#">Select your class...</option>
-                    
+                    <% _.each(courses, function(course) { %><option id="<%= course.id %>"><%= course.name %></option> <% }); %>
                 </select>
                 <br><br>
                 <input placeholder="Insert Your PIN..." type="text" name="Pin" maxlength="4">
@@ -110,7 +109,7 @@
         <h4>Please select your class:</h4>
         <h5>
             <form>
-                <select>
+                <select id="courses">
                     <option value="Calculus">Calculus</option>
                     <option value="French Culture and Civilization">French Culture and Civilization</option>
                     <option value="Physics">Physics</option>

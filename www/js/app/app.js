@@ -36,7 +36,10 @@ var Router = Backbone.Router.extend({
     },
 
     schoolLocation: function () {
-        new Arrive.view.SchoolLocation({el: $("#main")});
+        new Arrive.view.SchoolLocation({
+            el: $("#main"),
+            school: Arrive.currentSchool
+        });
     },
 
     checkInMultiple: function () {
@@ -48,6 +51,7 @@ window.Arrive = {
     vent: _.extend({}, Backbone.Events),
     router: new Router(),
     server: "http://localhost:3000",
+    currentSchool: null,
 
     init: function () {
         _.bindAll(this);
@@ -85,7 +89,8 @@ window.Arrive = {
         this.router.navigate("home_multiple", {trigger: true});
     },
 
-    navigateSchoolLocation: function () {
+    navigateSchoolLocation: function (selectedSchool) {
+        this.currentSchool = selectedSchool;
         this.router.navigate("location", {trigger: true});
     },
 
@@ -102,6 +107,6 @@ window.Arrive = {
 
 window.utils = {
     url: function (path) {
-        return Arrive.server + '/' + path;
+        return Arrive.server + path;
     }
 }
