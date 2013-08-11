@@ -177,11 +177,7 @@ Arrive.view.SchoolLocation = Backbone.View.extend({
     },
 
     checkInMultiple: function () {
-        this.school.courses.fetch({
-            success: function () {
-                Arrive.vent.trigger("navigate:check-in-multiple", this.school);
-            }
-        });
+        Arrive.vent.trigger("navigate:check-in-multiple", this.school);
     },
 
     homeMultiple: function () {
@@ -203,10 +199,10 @@ Arrive.view.ConfirmationMultiple = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(this.template());
         var school = this.school.toJSON();
         school.courses = this.school.courses.toJSON();
 
+        this.$el.html(this.template(school));
         return this;
     },
 

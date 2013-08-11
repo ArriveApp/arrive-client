@@ -49,7 +49,10 @@ var Router = Backbone.Router.extend({
     },
 
     checkInMultiple: function () {
-        new Arrive.view.ConfirmationMultiple({el: $("#main")});
+        new Arrive.view.ConfirmationMultiple({
+            el: $("#main"),
+            school: Arrive.currentSchool
+        });
     }
 });
 
@@ -106,7 +109,8 @@ window.Arrive = {
         this.router.navigate("check_in_multiple", {trigger: true});
     },
 
-    navigateConfirmationMultiple: function () {
+    navigateConfirmationMultiple: function (selectedSchool) {
+        this.currentSchool = selectedSchool;
         this.router.navigate("confirmation_multiple", {trigger: true});
     }
 }
