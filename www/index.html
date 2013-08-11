@@ -60,7 +60,9 @@
             <form>
                 <select id="courses">
                     <option value="#">Select your class...</option>
-                    <% _.each(courses, function(course) { %><option id="<%= course.id %>"><%= course.name %></option> <% }); %>
+                    <% _.each(courses, function(course) { %>
+                    <option id="<%= course.id %>"><%= course.name %></option>
+                    <% }); %>
                 </select>
                 <br><br>
                 <input placeholder="Insert Your PIN..." type="text" name="Pin" maxlength="4">
@@ -110,10 +112,12 @@
         <h5>
             <form>
                 <select id="courses">
-                    <option value="Calculus">Calculus</option>
-                    <option value="French Culture and Civilization">French Culture and Civilization</option>
-                    <option value="Physics">Physics</option>
-                </select><br><br>
+                    <option value="#">Select your class...</option>
+                    <% _.each(courses, function(course) { %>
+                    <option id="<%= course.id %>"><%= course.name %></option>
+                    <% }); %>
+                </select>
+                <br><br>
                 <a href="#" name="check_in" id="student_check_in">Check In</a>
             </form>
         </h5>
