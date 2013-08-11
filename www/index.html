@@ -94,13 +94,11 @@
 <script type="text/template" id="template-home">
     <div class="home_personal">
         <h3>Welcome Student!</h3>
-        <form>
-            <h5><input placeholder="Email..." type="email" name="email" id="email" required></h5>
-            <h5><input placeholder="PIN..." type="text" name="Pin" id="password" maxlength="4" required></h5>
 
-            <!--<h5><input type="submit"></h5>-->
-            <a href="#" name="login" id="student_check_in">Student Log In</a>
-        </form>
+        <h5><input placeholder="Email..." type="email" name="email" id="email"></h5>
+        <h5><input placeholder="PIN..." type="text" name="Pin" id="password" maxlength="4"></h5>
+
+        <a href="#" name="login" id="student_check_in">Student Log In</a>
     </div>
 </script>
 
@@ -112,10 +110,10 @@
         <h5>
             <form>
                 <select id="courses">
-                    <option value="#">Select your class...</option>
-                    <% _.each(courses, function(course) { %><option id="<%= course.id %>"><%= course.name %></option> <% }); %>
-                </select>
-                <br><br>
+                    <option value="Calculus">Calculus</option>
+                    <option value="French Culture and Civilization">French Culture and Civilization</option>
+                    <option value="Physics">Physics</option>
+                </select><br><br>
                 <a href="#" name="check_in" id="student_check_in">Check In</a>
             </form>
         </h5>
