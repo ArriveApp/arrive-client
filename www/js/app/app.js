@@ -20,7 +20,10 @@ var Router = Backbone.Router.extend({
     },
 
     login: function () {
-        new Arrive.view.CheckIn({el: $("#main")});
+        new Arrive.view.CheckIn({
+            el: $("#main"),
+            school: Arrive.currentSchool
+        });
     },
 
     checkIn: function () {
@@ -28,7 +31,10 @@ var Router = Backbone.Router.extend({
     },
 
     newClass: function () {
-        new Arrive.view.CheckIn({el: $("#main")});
+        new Arrive.view.CheckIn({
+            el: $("#main"),
+            school: Arrive.currentSchool
+        });
     },
 
     homeMultiple: function () {
@@ -73,7 +79,8 @@ window.Arrive = {
         this.router.navigate("home_personal", {trigger: true});
     },
 
-    navigateLogin: function () {
+    navigateLogin: function (selectedSchool) {
+        this.currentSchool = selectedSchool;
         this.router.navigate("login", {trigger: true});
     },
 
@@ -94,7 +101,8 @@ window.Arrive = {
         this.router.navigate("location", {trigger: true});
     },
 
-    navigateCheckInMultiple: function () {
+    navigateCheckInMultiple: function (selectedSchool) {
+        this.currentSchool = selectedSchool;
         this.router.navigate("check_in_multiple", {trigger: true});
     },
 

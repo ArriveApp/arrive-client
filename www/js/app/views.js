@@ -21,8 +21,20 @@ Arrive.view.MainView = Backbone.View.extend({
 Arrive.view.HomePersonal = Backbone.View.extend({
     initialize: function () {
         this.template = _.template($('#template-home').html());
-
+        _.bindAll(this);
+        this.loadSchools();
         this.render();
+    },
+
+    loadSchools: function () {
+        this.schools = new Arrive.collection.Schools();
+        this.schools.fetch({
+            success: this.selectedSchool
+        });
+    },
+
+    selectedSchool: function () {
+        return this.schools.get(1);
     },
 
     events: {
@@ -35,13 +47,22 @@ Arrive.view.HomePersonal = Backbone.View.extend({
     },
 
     login: function () {
-        Arrive.vent.trigger("navigate:login");
+        var selectedSchool = this.selectedSchool();
+
+        selectedSchool.courses.fetch({
+            success: function () {
+                Arrive.vent.trigger("navigate:login", selectedSchool);
+            }
+        });
     }
 });
 
 Arrive.view.CheckIn = Backbone.View.extend({
-    initialize: function () {
+    initialize: function (options) {
         this.template = _.template($('#template-student-check-in').html());
+        _.bindAll(this);
+
+        this.school = options.school;
         this.render();
     },
 
@@ -50,7 +71,10 @@ Arrive.view.CheckIn = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(this.template());
+        var school = this.school.toJSON();
+        school.courses = this.school.courses.toJSON();
+
+        this.$el.html(this.template(school));
         return this;
     },
 
@@ -117,7 +141,6 @@ Arrive.view.HomeMultiple = Backbone.View.extend({
     location: function () {
         var selectedSchool = this.selectedSchool();
 
-        // fetch courses before going to next page
         selectedSchool.courses.fetch({
             success: function () {
                 Arrive.vent.trigger("navigate:school-location", selectedSchool);
@@ -137,7 +160,6 @@ Arrive.view.SchoolLocation = Backbone.View.extend({
         _.bindAll(this);
 
         this.school = options.school;
-
         this.render();
     },
 
@@ -147,7 +169,6 @@ Arrive.view.SchoolLocation = Backbone.View.extend({
     },
 
     render: function () {
-        // create a school json combining school model and courses collection
         var school = this.school.toJSON();
         school.courses = this.school.courses.toJSON();
 
@@ -156,7 +177,11 @@ Arrive.view.SchoolLocation = Backbone.View.extend({
     },
 
     checkInMultiple: function () {
-        Arrive.vent.trigger("navigate:check-in-multiple");
+        this.school.courses.fetch({
+            success: function () {
+                Arrive.vent.trigger("navigate:check-in-multiple", this.school);
+            }
+        });
     },
 
     homeMultiple: function () {
@@ -165,8 +190,11 @@ Arrive.view.SchoolLocation = Backbone.View.extend({
 });
 
 Arrive.view.ConfirmationMultiple = Backbone.View.extend({
-    initialize: function () {
+    initialize: function (options) {
         this.template = _.template($('#template-confirmation-multiple').html());
+        _.bindAll(this);
+
+        this.school = options.school;
         this.render();
     },
 
@@ -176,6 +204,9 @@ Arrive.view.ConfirmationMultiple = Backbone.View.extend({
 
     render: function () {
         this.$el.html(this.template());
+        var school = this.school.toJSON();
+        school.courses = this.school.courses.toJSON();
+
         return this;
     },
 

@@ -60,9 +60,7 @@
             <form>
                 <select id="courses">
                     <option value="#">Select your class...</option>
-                    <% _.each(courses, function(course) { %>
-                    <option id="<%= course.id %>"><%= course.name %></option>
-                    <% }); %>
+                    <% _.each(courses, function(course) { %><option id="<%= course.id %>"><%= course.name %></option> <% }); %>
                 </select>
                 <br><br>
                 <input placeholder="Insert Your PIN..." type="text" name="Pin" maxlength="4">
@@ -75,14 +73,12 @@
 
 <script type="text/template" id="template-confirmation-multiple">
     <div class="home_personal">
-        <h3 class="school">The Nightingale-Bamford School</h3><h4> Alex, thanks for checking in!</h4>
+        <h3 class="school"><%= name %></h3><h4> Alex, thanks for checking in!</h4>
         <h5>
             <form>
-                <select>
-                    <!-- <option value"#">Select your class...</option> -->
-                    <option value="French Culture and Civilization">French Culture and Civilization</option>
-                    <option value="Calculus">Calculus</option>
-                    <option value="Physics">Physics</option>
+                <select id="courses">
+                    <option value="#">Select your class...</option>
+                    <% _.each(courses, function(course) { %><option id="<%= course.id %>"><%= course.name %></option> <% }); %>
                 </select>
                 <br><br>
                 <input placeholder="Insert your PIN..." type="text" name="Pin" maxlength="4">
@@ -107,15 +103,13 @@
 <script type="text/template" id="template-student-check-in">
     <div class="home_personal">
         <h3>Welcome Alex!</h3>
-        <h4 class="school">The Nightingale-Bamford School</h4><br><br>
+        <h4 class="school"><%= name %></h4><br><br>
         <h4>Please select your class:</h4>
         <h5>
             <form>
                 <select id="courses">
                     <option value="#">Select your class...</option>
-                    <% _.each(courses, function(course) { %>
-                    <option id="<%= course.id %>"><%= course.name %></option>
-                    <% }); %>
+                    <% _.each(courses, function(course) { %><option id="<%= course.id %>"><%= course.name %></option> <% }); %>
                 </select>
                 <br><br>
                 <a href="#" name="check_in" id="student_check_in">Check In</a>
