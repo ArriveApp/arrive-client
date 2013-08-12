@@ -13,7 +13,7 @@ Arrive.model.School = Backbone.Model.extend({
 });
 
 Arrive.model.User = Backbone.Model.extend({
-    url: utils.url('/users/sign_in'),
+    url: utils.url('/api/session'),
 
     defaults: {
         email: '',
