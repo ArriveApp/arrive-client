@@ -1,9 +1,6 @@
 Arrive.view = {};
 
 Arrive.view.MainView = Backbone.View.extend({
-    initialize: function () {
-    },
-
     events: {
         'click #home_personal': 'homePersonal',
         'click #home_multiple': 'homeMultiple'
@@ -22,6 +19,7 @@ Arrive.view.HomePersonal = Backbone.View.extend({
     initialize: function () {
         this.template = _.template($('#template-home').html());
         _.bindAll(this);
+
         this.loadSchools();
         this.render();
     },
@@ -47,15 +45,40 @@ Arrive.view.HomePersonal = Backbone.View.extend({
     },
 
     login: function () {
-        var selectedSchool = this.selectedSchool();
+        var userModel = new Arrive.model.User();
 
-        selectedSchool.courses.fetch({
-            success: function () {
-                Arrive.vent.trigger("navigate:login", selectedSchool);
-            }
-        });
-    }
-});
+        this.emailField = this.$el.find('input[name=email]');
+        this.pinField = this.$el.find('input[name=pin]');
+
+        userModel.save({
+            email: this.emailField.val(),
+            password: this.pinField.val()
+        }, {
+            success: function (model, response) {
+                console.log('success');
+                var selectedSchool = this.selectedSchool();
+                selectedSchool.courses.fetch({
+                    success: function () {
+                        Arrive.vent.trigger("navigate:login", selectedSchool);
+                    }
+                });
+            },
+        error: function (model, response) {
+            console.log('error');
+        }
+
+    });
+}
+//        var selectedSchool = this.selectedSchool();
+//
+//        selectedSchool.courses.fetch({
+//            success: function () {
+//                Arrive.vent.trigger("navigate:login", selectedSchool);
+//            }
+//        });
+//    }
+})
+;
 
 Arrive.view.CheckIn = Backbone.View.extend({
     initialize: function (options) {

@@ -22,7 +22,8 @@ var Router = Backbone.Router.extend({
     login: function () {
         new Arrive.view.CheckIn({
             el: $("#main"),
-            school: Arrive.currentSchool
+            school: Arrive.currentSchool,
+            user: Arrive.user
         });
     },
 
@@ -61,6 +62,7 @@ window.Arrive = {
     router: new Router(),
     server: "http://localhost:3000",
     currentSchool: null,
+    user: null,
 
     init: function () {
         _.bindAll(this);
@@ -82,8 +84,9 @@ window.Arrive = {
         this.router.navigate("home_personal", {trigger: true});
     },
 
-    navigateLogin: function (selectedSchool) {
+    navigateLogin: function (selectedSchool, user) {
         this.currentSchool = selectedSchool;
+        this.user = user;
         this.router.navigate("login", {trigger: true});
     },
 

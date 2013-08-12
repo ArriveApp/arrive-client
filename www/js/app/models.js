@@ -12,6 +12,24 @@ Arrive.model.School = Backbone.Model.extend({
     }
 });
 
+Arrive.model.User = Backbone.Model.extend({
+    url: utils.url('/users/sign_in'),
+
+    defaults: {
+        email: '',
+        password: ''
+    },
+
+    validate: function (attrs) {
+        if (!attrs.email) {
+            return 'Please fill email field.';
+        }
+        if (!attrs.password) {
+            return 'Please fill feedback field.';
+        }
+    }
+});
+
 Arrive.collection = {};
 
 Arrive.collection.Schools = Backbone.Collection.extend({

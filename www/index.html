@@ -60,7 +60,9 @@
             <form>
                 <select id="courses">
                     <option value="#">Select your class...</option>
-                    <% _.each(courses, function(course) { %><option id="<%= course.id %>"><%= course.name %></option> <% }); %>
+                    <% _.each(courses, function(course) { %>
+                    <option id="<%= course.id %>"><%= course.name %></option>
+                    <% }); %>
                 </select>
                 <br><br>
                 <input placeholder="Insert Your PIN..." type="text" name="Pin" maxlength="4">
@@ -78,7 +80,9 @@
             <form>
                 <select id="courses">
                     <option value="#">Select your class...</option>
-                    <% _.each(courses, function(course) { %><option id="<%= course.id %>"><%= course.name %></option> <% }); %>
+                    <% _.each(courses, function(course) { %>
+                    <option id="<%= course.id %>"><%= course.name %></option>
+                    <% }); %>
                 </select>
                 <br><br>
                 <input placeholder="Insert your PIN..." type="text" name="Pin" maxlength="4">
@@ -93,10 +97,12 @@
     <div class="home_personal">
         <h3>Welcome Student!</h3>
 
-        <h5><input placeholder="Email..." type="email" name="email" id="email"></h5>
-        <h5><input placeholder="PIN..." type="text" name="Pin" id="password" maxlength="4"></h5>
-
-        <a href="#" name="login" id="student_check_in">Student Log In</a>
+        <form>
+            <h5><input placeholder="Email..." type="email" name="email" id="email"></h5>
+            <h5><input placeholder="PIN..." type="text" name="pin" id="password" maxlength="4"></h5>
+            <!--<h5><input href="#" type="submit" name="login" id="student_check_in"</h5>-->
+            <a href="#" name="login" id="student_check_in">Student Log In</a>
+        </form>
     </div>
 </script>
 
@@ -109,7 +115,9 @@
             <form>
                 <select id="courses">
                     <option value="#">Select your class...</option>
-                    <% _.each(courses, function(course) { %><option id="<%= course.id %>"><%= course.name %></option> <% }); %>
+                    <% _.each(courses, function(course) { %>
+                    <option id="<%= course.id %>"><%= course.name %></option>
+                    <% }); %>
                 </select>
                 <br><br>
                 <a href="#" name="check_in" id="student_check_in">Check In</a>
