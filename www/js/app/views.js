@@ -51,34 +51,22 @@ Arrive.view.HomePersonal = Backbone.View.extend({
         this.pinField = this.$el.find('input[name=pin]');
 
         userModel.save({
-            email: this.emailField.val(),
-            password: this.pinField.val()
-        }, {
-            success: function (model, response) {
+                email: this.emailField.val(), 
+                password: this.pinField.val()
+            }, 
+            {   success: function (model, response) {
                 console.log('success');
                 var selectedSchool = this.selectedSchool();
-                selectedSchool.courses.fetch({
-                    success: function () {
-                        Arrive.vent.trigger("navigate:login", selectedSchool);
-                    }
-                });
-            },
-        error: function (model, response) {
-            console.log('error');
-        }
-
-    });
-}
-//        var selectedSchool = this.selectedSchool();
-//
-//        selectedSchool.courses.fetch({
-//            success: function () {
-//                Arrive.vent.trigger("navigate:login", selectedSchool);
-//            }
-//        });
-//    }
-})
-;
+                selectedSchool.courses.fetch(
+                    {
+                        success: function () {Arrive.vent.trigger("navigate:login", selectedSchool);}
+                    });
+                }, error: function (model, response) {
+                    console.log('error');
+                }
+            });
+    }
+});
 
 Arrive.view.CheckIn = Backbone.View.extend({
     initialize: function (options) {
