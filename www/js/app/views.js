@@ -191,6 +191,9 @@ Arrive.view.ConfirmationMultiple = Backbone.View.extend({
         _.bindAll(this);
 
         this.school = options.school;
+        this.school.courses.fetch({
+            success: this.renderCourses
+        });
         this.render();
     },
 
@@ -205,6 +208,17 @@ Arrive.view.ConfirmationMultiple = Backbone.View.extend({
         this.$el.html(this.template(school));
         return this;
     },
+
+    renderCourses: function () {
+        var $courses = this.$("#courses");
+        this.schools.courser.forEach(function (course) {
+            $courses.append($('<option></option>')
+                .attr('value', course.get('id'))
+                .text(course.get('name'))
+            );
+        });
+    },
+
 
     confirmationMultiple: function () {
         Arrive.vent.trigger("navigate:confirmation-multiple");
