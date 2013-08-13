@@ -189,9 +189,7 @@ Arrive.view.ConfirmationMultiple = Backbone.View.extend({
         _.bindAll(this);
 
         this.school = options.school;
-        this.school.courses.fetch({
-            success: this.renderCourses
-        });
+        this.school.courses.fetch().done(this.renderCourses);
         this.render();
     },
 
