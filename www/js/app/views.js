@@ -31,10 +31,6 @@ Arrive.view.HomePersonal = Backbone.View.extend({
         });
     },
 
-    selectedSchool: function () {
-        return this.schools.get(1);
-    },
-
     events: {
         'click a[name=login]': 'login'
     },
@@ -45,26 +41,26 @@ Arrive.view.HomePersonal = Backbone.View.extend({
     },
 
     login: function () {
-        var userModel = new Arrive.model.User();
+        var inputFields = {
+            email: this.$el.find('input[name=email]').val(),
+            password: this.$el.find('input[name=pin]').val()
+        }
 
-        this.emailField = this.$el.find('input[name=email]');
-        this.pinField = this.$el.find('input[name=pin]');
-
-        userModel.save({
-                email: this.emailField.val(), 
-                password: this.pinField.val()
-            }, 
-            {   success: function (model, response) {
+        var callback = {
+            success: function (model, response) {
                 console.log('success');
-                var selectedSchool = this.selectedSchool();
-                selectedSchool.courses.fetch(
-                    {
-                        success: function () {Arrive.vent.trigger("navigate:login", selectedSchool);}
-                    });
-                }, error: function (model, response) {
-                    console.log('error');
-                }
-            });
+                var selectedSchool = this.schools.get(1);
+                selectedSchool.courses.fetch({
+                    success: function () {Arrive.vent.trigger("navigate:login", selectedSchool);}
+                });
+            },
+            error: function (model, response) {
+                console.log('error');
+            }
+        }
+
+        var userModel = new Arrive.model.User();
+        userModel.save(inputFields, callback);
     }
 });
 
