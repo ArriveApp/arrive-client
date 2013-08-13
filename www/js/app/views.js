@@ -20,15 +20,7 @@ Arrive.view.HomePersonal = Backbone.View.extend({
         this.template = _.template($('#template-home').html());
         _.bindAll(this);
 
-        this.loadSchools();
         this.render();
-    },
-
-    loadSchools: function () {
-        this.schools = new Arrive.collection.Schools();
-        this.schools.fetch({
-            success: this.selectedSchool
-        });
     },
 
     events: {
@@ -51,7 +43,9 @@ Arrive.view.HomePersonal = Backbone.View.extend({
                 console.log('success');
                 var selectedSchool = this.schools.get(1);
                 selectedSchool.courses.fetch({
-                    success: function () {Arrive.vent.trigger("navigate:login", selectedSchool);}
+                    success: function () {
+                        Arrive.vent.trigger("navigate:login", selectedSchool);
+                    }
                 });
             },
             error: function (model, response) {
@@ -218,14 +212,13 @@ Arrive.view.ConfirmationMultiple = Backbone.View.extend({
 
     renderCourses: function () {
         var $courses = this.$("#courses");
-        this.schools.courser.forEach(function (course) {
+        this.schools.courses.forEach(function (course) {
             $courses.append($('<option></option>')
                 .attr('value', course.get('id'))
                 .text(course.get('name'))
             );
         });
     },
-
 
     confirmationMultiple: function () {
         Arrive.vent.trigger("navigate:confirmation-multiple");

@@ -122,6 +122,6 @@ window.Arrive = {
 
 window.utils = {
     url: function (path) {
-        return Arrive.server + path;
+        return Arrive.server + '/api' + path;
     }
 }
