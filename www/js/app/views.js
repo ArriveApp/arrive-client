@@ -33,28 +33,29 @@ Arrive.view.HomePersonal = Backbone.View.extend({
     },
 
     login: function () {
-        var inputFields = {
+        new Arrive.model.User()
+            .save(this.readInputValues())
+            .done(this.onLoginSuccess)
+            .error(this.onLoginError);
+    },
+
+    readInputValues: function () {
+        return {
             email: this.$el.find('input[name=email]').val(),
             password: this.$el.find('input[name=pin]').val()
-        }
+        };
+    },
 
-        var callback = {
-            success: function (model, response) {
-                console.log('success');
-                var selectedSchool = this.schools.get(1);
-                selectedSchool.courses.fetch({
-                    success: function () {
-                        Arrive.vent.trigger("navigate:login", selectedSchool);
-                    }
-                });
-            },
-            error: function (model, response) {
-                console.log('error');
-            }
-        }
+    onLoginSuccess: function () {
+        console.log('success');
+        var selectedSchool = this.schools.get(1);
+        selectedSchool.courses.fetch().done(function () {
+            Arrive.vent.trigger("navigate:login", selectedSchool);
+        });
+    },
 
-        var userModel = new Arrive.model.User();
-        userModel.save(inputFields, callback);
+    onLoginError: function () {
+        console.log('login failed');
     }
 });
 
@@ -115,9 +116,7 @@ Arrive.view.HomeMultiple = Backbone.View.extend({
 
     loadSchools: function () {
         this.schools = new Arrive.collection.Schools();
-        this.schools.fetch({
-            success: this.renderSchools
-        });
+        this.schools.fetch().done(this.renderSchools);
     },
 
     events: {
@@ -142,10 +141,8 @@ Arrive.view.HomeMultiple = Backbone.View.extend({
     location: function () {
         var selectedSchool = this.selectedSchool();
 
-        selectedSchool.courses.fetch({
-            success: function () {
-                Arrive.vent.trigger("navigate:school-location", selectedSchool);
-            }
+        selectedSchool.courses.fetch().done(function () {
+            Arrive.vent.trigger("navigate:school-location", selectedSchool);
         });
     },
 
