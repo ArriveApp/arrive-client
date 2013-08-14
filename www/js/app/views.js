@@ -97,7 +97,8 @@ Arrive.view.CheckIn = Backbone.View.extend({
 
     render: function () {
         this.$el.html(this.template({
-            courses: this.session.courses.toJSON()
+            courses: this.session.courses.toJSON(),
+            schoolName: this.session.school.get('name')
         }));
         return this;
     },
