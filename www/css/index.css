@@ -380,3 +380,8 @@ h5 {
 .validation-error {
     border: 1px solid red;
 }
+
+.validation-text-error {
+    font-weight: normal;
+    color: red;
+}

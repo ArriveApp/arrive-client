@@ -48,6 +48,7 @@ Arrive.view.Login = Backbone.View.extend({
     clearValidationErrors: function () {
         this.$el.find('input[name=email]').removeClass('validation-error');
         this.$el.find('input[name=pin]').removeClass('validation-error');
+        this.$el.find('#error_message').hide();
     },
 
     login: function () {
@@ -78,6 +79,7 @@ Arrive.view.Login = Backbone.View.extend({
     },
 
     onLoginError: function () {
+        this.$el.find('#error_message').show();
         console.log('login failed');
     }
 });
