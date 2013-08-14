@@ -3,7 +3,7 @@ var Router = Backbone.Router.extend({
         "": "index",
         "login": "login",
         "check_in": "checkIn",
-        "new_class": "newClass",
+        "check_in_confirmation": "checkInConfirmation",
         "home_multiple": "homeMultiple",
         "location": "schoolLocation",
         'check_in_multiple': "checkInMultiple",
@@ -25,8 +25,8 @@ var Router = Backbone.Router.extend({
         });
     },
 
-    newClass: function () {
-        new Arrive.view.NewClass({el: $("#main"), courseName: Arrive.courseName});
+    checkInConfirmation: function () {
+        new Arrive.view.CheckInConfirmation({el: $("#main"), courseName: Arrive.courseName});
     },
 
     homeMultiple: function () {
@@ -65,7 +65,7 @@ window.Arrive = {
         this.vent.on("login-complete", this.loginComplete);
         this.vent.on("navigate:check-in", this.navigateCheckIn);
         this.vent.on("check-in-complete", this.checkInComplete);
-        this.vent.on("navigate:new-class", this.navigateNewClass);
+        this.vent.on("navigate:check-in-confirmation", this.navigateCheckInConfirmation);
         this.vent.on("navigate:home-multiple", this.navigateHomeMultiple);
         this.vent.on("navigate:school-location", this.navigateSchoolLocation);
         this.vent.on("navigate:check-in-multiple", this.navigateCheckInMultiple);
@@ -88,8 +88,8 @@ window.Arrive = {
         Arrive.courseName = courseName;
     },
 
-    navigateNewClass: function () {
-        this.router.navigate("new_class", {trigger: true});
+    navigateCheckInConfirmation: function () {
+        this.router.navigate("check_in_confirmation", {trigger: true});
     },
 
     navigateHomeMultiple: function () {

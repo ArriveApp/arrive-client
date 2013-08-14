@@ -124,7 +124,7 @@ Arrive.view.CheckIn = Backbone.View.extend({
     onCheckInSuccess: function () {
         var courseName = this.checkin.courseName;
         Arrive.vent.trigger('check-in-complete', courseName);
-        Arrive.vent.trigger("navigate:new-class");
+        Arrive.vent.trigger("navigate:check-in-confirmation");
     },
 
     onCheckInFailed: function () {
@@ -132,16 +132,16 @@ Arrive.view.CheckIn = Backbone.View.extend({
     }
 });
 
-Arrive.view.NewClass = Backbone.View.extend({
+Arrive.view.CheckInConfirmation = Backbone.View.extend({
     initialize: function (options) {
-        this.template = _.template($('#template-student-new-class').html());
+        this.template = _.template($('#template-student-check-in-confirmation').html());
 
         this.courseName = options.courseName;
         this.render();
     },
 
     events: {
-        'click a[name=new_class]': 'newClass'
+        'click a[name=new_class]': 'checkIn'
     },
 
     render: function () {
@@ -151,7 +151,7 @@ Arrive.view.NewClass = Backbone.View.extend({
         return this;
     },
 
-    newClass: function () {
+    checkIn: function () {
         Arrive.vent.trigger("navigate:check-in");
     }
 });
