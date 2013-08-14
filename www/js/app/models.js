@@ -37,17 +37,19 @@ Arrive.model.User = Backbone.Model.extend({
 
 Arrive.model.CheckIn = Backbone.Model.extend({
     url: function(){
-        var path = '/schools/' + this.schoolId + '/courses/' + this.courseId + '/check_in'
+        var path = '/schools/' + this.schoolId + '/courses/' + this.courseId + '/check_in?auth_token=' + this.authToken;
         return utils.url(path);
     },
 
     defaults: {
+        authToken: null,
         schoolId: null,
         courseId: null,
         courseName: ''
     },
 
     initialize: function (values) {
+        this.authToken = values.authToken;
         this.schoolId = values.schoolId;
         this.courseId = values.courseId;
         this.courseName = values.courseName;

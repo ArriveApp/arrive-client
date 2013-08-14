@@ -105,6 +105,7 @@ Arrive.view.CheckIn = Backbone.View.extend({
 
     readSelectionValues: function () {
         return {
+            authToken: this.session.authenticationToken,
             schoolId: this.session.school.id,
             courseId: this.$el.find('#courses option:selected').attr("id"),
             courseName: this.$el.find('#courses option:selected').val()
