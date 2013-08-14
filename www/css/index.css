@@ -376,3 +376,7 @@ h5 {
     margin-right: 70px;
     margin-top: -10px;
 }
+
+.validation-error {
+    border: 1px solid red;
+}

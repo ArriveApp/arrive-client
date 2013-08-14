@@ -19,7 +19,7 @@ Arrive.view.HomePersonal = Backbone.View.extend({
     initialize: function () {
         this.template = _.template($('#template-home').html());
         _.bindAll(this);
-
+        this.addListeners();
         this.render();
     },
 
@@ -27,16 +27,37 @@ Arrive.view.HomePersonal = Backbone.View.extend({
         'click a[name=login]': 'login'
     },
 
+    addListeners: function () {
+        this.user = new Arrive.model.User();
+        this.user.on('invalid', this.showValidationError);
+    },
+
     render: function () {
         this.$el.html(this.template());
         return this;
     },
 
+    showValidationError: function (model, error) {
+        console.log(error);
+        this.$el.find('input[name=email]').addClass('validation-error');
+        this.$el.find('input[name=pin]').addClass('validation-error');
+    },
+
+    clearValidationErrors: function () {
+        this.$el.find('input[name=email]').removeClass('validation-error');
+        this.$el.find('input[name=pin]').removeClass('validation-error');
+    },
+
     login: function () {
-        new Arrive.model.User()
-            .save(this.readInputValues())
-            .done(this.onLoginSuccess)
-            .error(this.onLoginError);
+        this.clearValidationErrors();
+
+        this.user.set(this.readInputValues(), {validate: true});
+
+        if (this.user.isValid()) {
+            this.user.save()
+                .done(this.onLoginSuccess)
+                .error(this.onLoginError);
+        }
     },
 
     readInputValues: function () {
@@ -48,10 +69,6 @@ Arrive.view.HomePersonal = Backbone.View.extend({
 
     onLoginSuccess: function () {
         console.log('success');
-        var selectedSchool = this.schools.get(1);
-        selectedSchool.courses.fetch().done(function () {
-            Arrive.vent.trigger("navigate:login", selectedSchool);
-        });
     },
 
     onLoginError: function () {
