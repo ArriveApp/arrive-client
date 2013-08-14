@@ -1,7 +1,6 @@
 var Router = Backbone.Router.extend({
     routes: {
         "": "index",
-        "home_personal": "homePersonal",
         "login": "login",
         "check_in": "checkIn",
         "new_class": "newClass",
@@ -15,25 +14,19 @@ var Router = Backbone.Router.extend({
         new Arrive.view.MainView({el: $("#main")});
     },
 
-    homePersonal: function () {
-        new Arrive.view.HomePersonal({el: $("#main")});
-    },
-
     login: function () {
-        new Arrive.view.CheckIn({
-            el: $("#main"),
-            session: Arrive.session});
+        new Arrive.view.Login({el: $("#main")});
     },
 
     checkIn: function () {
-        new Arrive.view.NewClass({el: $("#main")});
-    },
-
-    newClass: function () {
         new Arrive.view.CheckIn({
             el: $("#main"),
             session: Arrive.session
         });
+    },
+
+    newClass: function () {
+        new Arrive.view.NewClass({el: $("#main")});
     },
 
     homeMultiple: function () {
@@ -68,8 +61,8 @@ window.Arrive = {
     },
 
     addListeners: function () {
-        this.vent.on("navigate:home-personal", this.navigateHomePersonal);
         this.vent.on("navigate:login", this.navigateLogin);
+        this.vent.on("login-complete", this.loginComplete);
         this.vent.on("navigate:check-in", this.navigateCheckIn);
         this.vent.on("navigate:new-class", this.navigateNewClass);
         this.vent.on("navigate:home-multiple", this.navigateHomeMultiple);
@@ -78,13 +71,12 @@ window.Arrive = {
         this.vent.on("navigate:confirmation-multiple", this.navigateConfirmationMultiple);
     },
 
-    navigateHomePersonal: function () {
-        this.router.navigate("home_personal", {trigger: true});
+    navigateLogin: function () {
+        this.router.navigate("login", {trigger: true});
     },
 
-    navigateLogin: function (session) {
+    loginComplete: function(session) {
         Arrive.session = session;
-        this.router.navigate("login", {trigger: true});
     },
 
     navigateCheckIn: function () {

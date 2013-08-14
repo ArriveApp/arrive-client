@@ -7,7 +7,7 @@ Arrive.view.MainView = Backbone.View.extend({
     },
 
     homePersonal: function () {
-        Arrive.vent.trigger("navigate:home-personal");
+        Arrive.vent.trigger("navigate:login");
     },
 
     homeMultiple: function () {
@@ -15,7 +15,7 @@ Arrive.view.MainView = Backbone.View.extend({
     }
 });
 
-Arrive.view.HomePersonal = Backbone.View.extend({
+Arrive.view.Login = Backbone.View.extend({
     initialize: function () {
         this.template = _.template($('#template-home').html());
         _.bindAll(this);
@@ -64,14 +64,17 @@ Arrive.view.HomePersonal = Backbone.View.extend({
 
     readInputValues: function () {
         return {
-            email: this.$el.find('input[name=email]').val(),
-            password: this.$el.find('input[name=pin]').val()
+            session: {
+                email: this.$el.find('input[name=email]').val(),
+                password: this.$el.find('input[name=pin]').val()
+            }
         };
     },
 
     onLoginSuccess: function (response) {
         var session = new Arrive.model.Session(this.user, response);
-        Arrive.vent.trigger('navigate:login', session);
+        Arrive.vent.trigger('login-complete', session);
+        Arrive.vent.trigger('navigate:check-in');
     },
 
     onLoginError: function () {
@@ -100,7 +103,7 @@ Arrive.view.CheckIn = Backbone.View.extend({
     },
 
     checkIn: function () {
-        Arrive.vent.trigger("navigate:check-in");
+        Arrive.vent.trigger("navigate:new-class");
     }
 });
 
@@ -120,10 +123,9 @@ Arrive.view.NewClass = Backbone.View.extend({
     },
 
     newClass: function () {
-        Arrive.vent.trigger("navigate:new-class");
+        Arrive.vent.trigger("navigate:check-in");
     }
 });
-
 
 Arrive.view.HomeMultiple = Backbone.View.extend({
     initialize: function () {
@@ -235,6 +237,6 @@ Arrive.view.ConfirmationMultiple = Backbone.View.extend({
     },
 
     confirmationMultiple: function () {
-        Arrive.vent.trigger("navigate:confirmation-multiple");
+        Arrive.vent.trigger("navigate:home-multiple");
     }
 });
