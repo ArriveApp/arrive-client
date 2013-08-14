@@ -41,7 +41,7 @@ Arrive.view.HomePersonal = Backbone.View.extend({
         _.forEach(errors, this.invalidateField);
     },
 
-    invalidateField: function(field) {
+    invalidateField: function (field) {
         this.$el.find('input[name=' + field + ']').addClass('validation-error');
     },
 
@@ -69,8 +69,9 @@ Arrive.view.HomePersonal = Backbone.View.extend({
         };
     },
 
-    onLoginSuccess: function () {
-        console.log('success');
+    onLoginSuccess: function (response) {
+        var session = new Arrive.model.Session(this.user, response);
+        Arrive.vent.trigger('navigate:login', session);
     },
 
     onLoginError: function () {
@@ -83,7 +84,7 @@ Arrive.view.CheckIn = Backbone.View.extend({
         this.template = _.template($('#template-student-check-in').html());
         _.bindAll(this);
 
-        this.school = options.school;
+        this.session = options.session;
         this.render();
     },
 
@@ -92,10 +93,9 @@ Arrive.view.CheckIn = Backbone.View.extend({
     },
 
     render: function () {
-        var school = this.school.toJSON();
-        school.courses = this.school.courses.toJSON();
-
-        this.$el.html(this.template(school));
+        this.$el.html(this.template({
+            courses: this.session.courses.toJSON()
+        }));
         return this;
     },
 

@@ -22,9 +22,7 @@ var Router = Backbone.Router.extend({
     login: function () {
         new Arrive.view.CheckIn({
             el: $("#main"),
-            school: Arrive.currentSchool,
-            user: Arrive.user
-        });
+            session: Arrive.session});
     },
 
     checkIn: function () {
@@ -34,7 +32,7 @@ var Router = Backbone.Router.extend({
     newClass: function () {
         new Arrive.view.CheckIn({
             el: $("#main"),
-            school: Arrive.currentSchool
+            session: Arrive.session
         });
     },
 
@@ -84,9 +82,8 @@ window.Arrive = {
         this.router.navigate("home_personal", {trigger: true});
     },
 
-    navigateLogin: function (selectedSchool, user) {
-        this.currentSchool = selectedSchool;
-        this.user = user;
+    navigateLogin: function (session) {
+        Arrive.session = session;
         this.router.navigate("login", {trigger: true});
     },
 
