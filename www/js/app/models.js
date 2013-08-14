@@ -30,7 +30,9 @@ Arrive.model.User = Backbone.Model.extend({
             errors.push('pin');
         }
 
-        return errors;
+        if (!_.isEmpty(errors.length)) {
+            return errors;
+        }
     }
 });
 
