@@ -15,19 +15,22 @@ Arrive.model.School = Backbone.Model.extend({
 Arrive.model.User = Backbone.Model.extend({
     url: utils.url('/session'),
 
-
     defaults: {
         email: '',
         password: ''
     },
 
     validate: function (attrs) {
+        var errors = [];
+
         if (_.isEmpty(attrs.email)) {
-            return 'Please fill email field.';
+            errors.push('email');
         }
         if (_.isEmpty(attrs.password)) {
-            return 'Please fill password field.';
+            errors.push('pin');
         }
+
+        return errors;
     }
 });
 

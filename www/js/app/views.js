@@ -37,10 +37,12 @@ Arrive.view.HomePersonal = Backbone.View.extend({
         return this;
     },
 
-    showValidationError: function (model, error) {
-        console.log(error);
-        this.$el.find('input[name=email]').addClass('validation-error');
-        this.$el.find('input[name=pin]').addClass('validation-error');
+    showValidationError: function (model, errors) {
+        _.forEach(errors, this.invalidateField);
+    },
+
+    invalidateField: function(field) {
+        this.$el.find('input[name=' + field + ']').addClass('validation-error');
     },
 
     clearValidationErrors: function () {
@@ -51,7 +53,7 @@ Arrive.view.HomePersonal = Backbone.View.extend({
     login: function () {
         this.clearValidationErrors();
 
-        this.user.set(this.readInputValues(), {validate: true});
+        this.user.set(this.readInputValues());
 
         if (this.user.isValid()) {
             this.user.save()
