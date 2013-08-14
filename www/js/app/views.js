@@ -103,14 +103,39 @@ Arrive.view.CheckIn = Backbone.View.extend({
         return this;
     },
 
+    readSelectionValues: function () {
+        return {
+            schoolId: this.session.school.id,
+            courseId: this.$el.find('#courses option:selected').attr("id"),
+            courseName: this.$el.find('#courses option:selected').val()
+        };
+    },
+
     checkIn: function () {
+        this.checkin = new Arrive.model.CheckIn(this.readSelectionValues());
+
+        this.checkin.save()
+            .done(this.onCheckInSuccess)
+            .error(this.onCheckInFailed)
+            .always(this.onCheckInSuccess);
+    },
+
+    onCheckInSuccess: function () {
+        var courseName = this.checkin.courseName;
+        Arrive.vent.trigger('check-in-complete', courseName);
         Arrive.vent.trigger("navigate:new-class");
+    },
+
+    onCheckInFailed: function () {
+        console.log('check in failed');
     }
 });
 
 Arrive.view.NewClass = Backbone.View.extend({
-    initialize: function () {
+    initialize: function (options) {
         this.template = _.template($('#template-student-new-class').html());
+
+        this.courseName = options.courseName;
         this.render();
     },
 
@@ -119,7 +144,9 @@ Arrive.view.NewClass = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(this.template());
+        this.$el.html(this.template({
+            courseName: this.courseName
+        }));
         return this;
     },
 

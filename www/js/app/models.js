@@ -35,6 +35,25 @@ Arrive.model.User = Backbone.Model.extend({
     }
 });
 
+Arrive.model.CheckIn = Backbone.Model.extend({
+    url: function(){
+        var path = '/schools/' + this.schoolId + '/courses/' + this.courseId + '/check_in'
+        return utils.url(path);
+    },
+
+    defaults: {
+        schoolId: null,
+        courseId: null,
+        courseName: ''
+    },
+
+    initialize: function (values) {
+        this.schoolId = values.schoolId;
+        this.courseId = values.courseId;
+        this.courseName = values.courseName;
+    }
+});
+
 Arrive.model.Session = Backbone.Model.extend({
     defaults: {
         school: null,

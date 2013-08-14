@@ -26,7 +26,7 @@ var Router = Backbone.Router.extend({
     },
 
     newClass: function () {
-        new Arrive.view.NewClass({el: $("#main")});
+        new Arrive.view.NewClass({el: $("#main"), courseName: Arrive.courseName});
     },
 
     homeMultiple: function () {
@@ -64,6 +64,7 @@ window.Arrive = {
         this.vent.on("navigate:login", this.navigateLogin);
         this.vent.on("login-complete", this.loginComplete);
         this.vent.on("navigate:check-in", this.navigateCheckIn);
+        this.vent.on("check-in-complete", this.checkInComplete);
         this.vent.on("navigate:new-class", this.navigateNewClass);
         this.vent.on("navigate:home-multiple", this.navigateHomeMultiple);
         this.vent.on("navigate:school-location", this.navigateSchoolLocation);
@@ -81,6 +82,10 @@ window.Arrive = {
 
     navigateCheckIn: function () {
         this.router.navigate("check_in", {trigger: true});
+    },
+
+    checkInComplete: function(courseName) {
+        Arrive.courseName = courseName;
     },
 
     navigateNewClass: function () {

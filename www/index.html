@@ -114,7 +114,7 @@
         <h5>
             <form>
                 <select id="courses">
-                    <option value="#">Select your class...</option>
+                    <option value="#" disabled>Select your class...</option>
                     <% _.each(courses, function(course) { %>
                     <option id="<%= course.id %>"><%= course.name %></option>
                     <% }); %>
@@ -128,8 +128,8 @@
 
 <script type="text/template" id="template-student-new-class">
     <div class="home_personal">
-        <h3>French Culture and Civilization</h3><br>
-        <h4>Thanks! You've successfully checked in to French Culture and Civilization. <br>
+        <h3><%= courseName %></h3><br>
+        <h4>Thanks! You've successfully checked in to <%= courseName %> <br><br>
             Have a great class!
         </h4>
         <a href="#" name="new_class" id="new_class">New Class</a>
