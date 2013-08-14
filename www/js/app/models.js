@@ -16,21 +16,20 @@ Arrive.model.User = Backbone.Model.extend({
     url: utils.url('/session'),
 
     defaults: {
-        email: '',
-        password: ''
+        session: null
     },
 
     validate: function (attrs) {
         var errors = [];
 
-        if (_.isEmpty(attrs.email)) {
+        if (_.isEmpty(attrs.session.email)) {
             errors.push('email');
         }
-        if (_.isEmpty(attrs.password)) {
+        if (_.isEmpty(attrs.session.password)) {
             errors.push('pin');
         }
 
-        if (!_.isEmpty(errors.length)) {
+        if (!_.isEmpty(errors)) {
             return errors;
         }
     }
