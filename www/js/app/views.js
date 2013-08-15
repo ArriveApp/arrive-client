@@ -7,11 +7,11 @@ Arrive.view.MainView = Backbone.View.extend({
     },
 
     homePersonal: function () {
-        Arrive.vent.trigger("navigate:login");
+        Arrive.vent.trigger("login");
     },
 
     homeMultiple: function () {
-        Arrive.vent.trigger("navigate:home-multiple");
+        Arrive.vent.trigger("home-multiple");
     }
 });
 
@@ -75,12 +75,10 @@ Arrive.view.Login = Backbone.View.extend({
     onLoginSuccess: function (response) {
         var session = new Arrive.model.Session(this.user, response);
         Arrive.vent.trigger('login-complete', session);
-        Arrive.vent.trigger('navigate:check-in');
     },
 
     onLoginError: function () {
         this.$el.find('#error_message').show();
-        console.log('login failed');
     }
 });
 
@@ -106,11 +104,12 @@ Arrive.view.CheckIn = Backbone.View.extend({
     },
 
     readSelectionValues: function () {
+        var $course = this.$el.find('#courses option:selected');
         return {
             authToken: this.session.authenticationToken,
             schoolId: this.session.school.id,
-            courseId: this.$el.find('#courses option:selected').attr("id"),
-            courseName: this.$el.find('#courses option:selected').val()
+            courseId: $course.attr("id"),
+            courseName: $course.val()
         };
     },
 
@@ -126,7 +125,6 @@ Arrive.view.CheckIn = Backbone.View.extend({
     onCheckInSuccess: function () {
         var courseName = this.checkin.courseName;
         Arrive.vent.trigger('check-in-complete', courseName);
-        Arrive.vent.trigger("navigate:check-in-confirmation");
     },
 
     onCheckInFailed: function () {
@@ -154,7 +152,7 @@ Arrive.view.CheckInConfirmation = Backbone.View.extend({
     },
 
     checkIn: function () {
-        Arrive.vent.trigger("navigate:check-in");
+        Arrive.vent.trigger("check-in");
     }
 });
 
@@ -194,7 +192,7 @@ Arrive.view.HomeMultiple = Backbone.View.extend({
         var selectedSchool = this.selectedSchool();
 
         selectedSchool.courses.fetch().done(function () {
-            Arrive.vent.trigger("navigate:school-location", selectedSchool);
+            Arrive.vent.trigger("school-location", selectedSchool);
         });
     },
 
@@ -227,11 +225,11 @@ Arrive.view.SchoolLocation = Backbone.View.extend({
     },
 
     checkInMultiple: function () {
-        Arrive.vent.trigger("navigate:check-in-multiple", this.school);
+        Arrive.vent.trigger("check-in-multiple", this.school);
     },
 
     homeMultiple: function () {
-        Arrive.vent.trigger("navigate:home-multiple");
+        Arrive.vent.trigger("home-multiple");
     }
 });
 
@@ -268,6 +266,6 @@ Arrive.view.ConfirmationMultiple = Backbone.View.extend({
     },
 
     confirmationMultiple: function () {
-        Arrive.vent.trigger("navigate:home-multiple");
+        Arrive.vent.trigger("home-multiple");
     }
 });

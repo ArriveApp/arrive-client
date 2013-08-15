@@ -61,15 +61,14 @@ window.Arrive = {
     },
 
     addListeners: function () {
-        this.vent.on("navigate:login", this.navigateLogin);
+        this.vent.on("login", this.navigateLogin);
         this.vent.on("login-complete", this.loginComplete);
-        this.vent.on("navigate:check-in", this.navigateCheckIn);
+        this.vent.on("check-in", this.navigateCheckIn);
         this.vent.on("check-in-complete", this.checkInComplete);
-        this.vent.on("navigate:check-in-confirmation", this.navigateCheckInConfirmation);
-        this.vent.on("navigate:home-multiple", this.navigateHomeMultiple);
-        this.vent.on("navigate:school-location", this.navigateSchoolLocation);
-        this.vent.on("navigate:check-in-multiple", this.navigateCheckInMultiple);
-        this.vent.on("navigate:confirmation-multiple", this.navigateConfirmationMultiple);
+        this.vent.on("home-multiple", this.navigateHomeMultiple);
+        this.vent.on("school-location", this.navigateSchoolLocation);
+        this.vent.on("check-in-multiple", this.navigateCheckInMultiple);
+        this.vent.on("confirmation-multiple", this.navigateConfirmationMultiple);
     },
 
     navigateLogin: function () {
@@ -78,6 +77,7 @@ window.Arrive = {
 
     loginComplete: function(session) {
         Arrive.session = session;
+        this.navigateCheckIn();
     },
 
     navigateCheckIn: function () {
@@ -86,9 +86,6 @@ window.Arrive = {
 
     checkInComplete: function(courseName) {
         Arrive.courseName = courseName;
-    },
-
-    navigateCheckInConfirmation: function () {
         this.router.navigate("check_in_confirmation", {trigger: true});
     },
 
