@@ -36,7 +36,7 @@ Arrive.model.User = Backbone.Model.extend({
 });
 
 Arrive.model.CheckIn = Backbone.Model.extend({
-    url: function(){
+    url: function () {
         var path = '/schools/' + this.schoolId + '/courses/' + this.courseId + '/check_in?auth_token=' + this.authToken;
         return utils.url(path);
     },
@@ -67,12 +67,13 @@ Arrive.model.Session = Backbone.Model.extend({
     },
 
     initialize: function (user, values) {
-        this.user = user;
-        this.authenticationToken = values.user['authentication_token'];
-        this.isTeacher = values.user['is_teacher'];
-        this.school = new Arrive.model.School(values.school);
-        this.userName = values.user['firstname'];
-        this.courses = new Backbone.Collection(values.courses);
+        this.set({
+            user: user,
+            authenticationToken: values.user['authentication_token'],
+            isTeacher: values.user['is_teacher'],
+            school: new Backbone.Model(values.school),
+            courses: new Backbone.Collection(values.courses)
+        });
     }
 });
 

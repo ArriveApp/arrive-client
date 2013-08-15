@@ -1,20 +1,5 @@
 Arrive.view = {};
 
-Arrive.view.MainView = Backbone.View.extend({
-    events: {
-        'click #home_personal': 'homePersonal',
-        'click #home_multiple': 'homeMultiple'
-    },
-
-    homePersonal: function () {
-        Arrive.vent.trigger("login");
-    },
-
-    homeMultiple: function () {
-        Arrive.vent.trigger("home-multiple");
-    }
-});
-
 Arrive.view.Login = Backbone.View.extend({
     initialize: function () {
         this.template = _.template($('#template-home').html());
@@ -82,6 +67,87 @@ Arrive.view.Login = Backbone.View.extend({
     }
 });
 
+Arrive.view.TeacherHome = Backbone.View.extend({
+    initialize: function (options) {
+        this.template = _.template($('#template-teacher-home').html());
+        _.bindAll(this);
+
+        this.session = options.session;
+        this.render();
+    },
+
+    events: {
+        'click a[name=check_in]': 'checkIn'
+    },
+
+    render: function () {
+        var session = this.session.toJSON();
+        this.$el.html(this.template({
+            schoolName: session.school.get('name'),
+            courses: session.courses.toJSON()
+        }));
+        return this;
+    },
+
+    checkIn: function () {
+        this.checkin = new Arrive.model.CheckIn(this.readSelectionValues());
+
+        this.checkin.save()
+            .done(this.onCheckInSuccess)
+            .error(this.onCheckInFailed)
+            .always(this.onCheckInSuccess);
+    },
+
+    readSelectionValues: function () {
+        var $course = this.$el.find('#courses option:selected');
+        return {
+            authToken: this.session.get('authenticationToken'),
+            schoolId: this.session.get('school').get('id'),
+            courseId: $course.attr("id"),
+            courseName: $course.val()
+        };
+    },
+
+    onCheckInSuccess: function () {
+        var courseName = this.checkin.courseName;
+        Arrive.vent.trigger('public-check-in-complete', courseName);
+    },
+
+    onCheckInFailed: function () {
+        console.log('check in failed');
+    }
+});
+
+Arrive.view.PublicCheckInConfirmation = Backbone.View.extend({
+    initialize: function(options) {
+        this.template = _.template($('#template-public-check-in-confirmation').html());
+        _.bindAll(this);
+
+        this.session = options.session;
+        this.courseName = options.courseName;
+        this.render();
+    },
+
+    events: {
+        'click a[name=new_class]': 'checkIn'
+    },
+
+    render: function() {
+        this.$el.html(this.template({
+            userName: this.session.get('user').get('userName'),
+            courseName: this.courseName
+        }));
+        return this;
+    },
+
+    checkIn: function() {
+        Arrive.vent.trigger('teacher-home');
+    }
+});
+
+
+
+
 Arrive.view.CheckIn = Backbone.View.extend({
     initialize: function (options) {
         this.template = _.template($('#template-student-check-in').html());
@@ -97,9 +163,9 @@ Arrive.view.CheckIn = Backbone.View.extend({
 
     render: function () {
         this.$el.html(this.template({
-            courses: this.session.courses.toJSON(),
-            schoolName: this.session.school.get('name'),
-            userName: this.session.userName
+            schoolName: this.session.get('school').get('name'),
+            courses: this.session.get('courses').toJSON(),
+            userName: this.session.get('user').get('userName')
         }));
         return this;
     },
@@ -107,8 +173,8 @@ Arrive.view.CheckIn = Backbone.View.extend({
     readSelectionValues: function () {
         var $course = this.$el.find('#courses option:selected');
         return {
-            authToken: this.session.authenticationToken,
-            schoolId: this.session.school.id,
+            authToken: this.session.get('authenticationToken'),
+            schoolId: this.session.get('school').get('id'),
             courseId: $course.attr("id"),
             courseName: $course.val()
         };

@@ -1,7 +1,9 @@
 var Router = Backbone.Router.extend({
     routes: {
-        "": "index",
-        "login": "login",
+        "": "login",
+        "teacher_home": "teacherHome",
+        "public_check_in_confirmation": "publicCheckInConfirmation",
+
         "check_in": "checkIn",
         "check_in_confirmation": "checkInConfirmation",
         "home_multiple": "homeMultiple",
@@ -10,13 +12,26 @@ var Router = Backbone.Router.extend({
         'confirmation_multiple': "confirmationMultiple"
     },
 
-    index: function () {
-        new Arrive.view.MainView({el: $("#main")});
-    },
-
     login: function () {
         new Arrive.view.Login({el: $("#main")});
     },
+
+    teacherHome: function () {
+        new Arrive.view.TeacherHome({
+            el: $("#main"),
+            session: Arrive.session
+        });
+    },
+
+    publicCheckInConfirmation: function() {
+        new Arrive.view.PublicCheckInConfirmation({
+            el: $("#main"),
+            session: Arrive.session,
+            courseName: Arrive.courseName
+        });
+    },
+
+
 
     checkIn: function () {
         new Arrive.view.CheckIn({
@@ -58,11 +73,17 @@ window.Arrive = {
     init: function () {
         _.bindAll(this);
         this.addListeners();
+        this.navigateLogin();
     },
 
     addListeners: function () {
         this.vent.on("login", this.navigateLogin);
         this.vent.on("login-complete", this.loginComplete);
+        this.vent.on('public-check-in-complete', this.publicCheckInComplete);
+        this.vent.on('teacher-home', this.navigateTeacherHome);
+
+
+
         this.vent.on("check-in", this.navigateCheckIn);
         this.vent.on("check-in-complete", this.checkInComplete);
         this.vent.on("home-multiple", this.navigateHomeMultiple);
@@ -70,21 +91,33 @@ window.Arrive = {
         this.vent.on("check-in-multiple", this.navigateCheckInMultiple);
         this.vent.on("confirmation-multiple", this.navigateConfirmationMultiple);
     },
-
     navigateLogin: function () {
-        this.router.navigate("login", {trigger: true});
+        this.router.navigate("", {trigger: true});
     },
 
-    loginComplete: function(session) {
+    loginComplete: function (session) {
         Arrive.session = session;
-        this.navigateCheckIn();
+        if (session.get('isTeacher')) {
+            this.navigateTeacherHome();
+        } else {
+            this.navigateCheckIn();
+        }
+    },
+
+    publicCheckInComplete: function (courseName) {
+        Arrive.courseName = courseName;
+        this.router.navigate("public_check_in_confirmation", {trigger: true});
+    },
+
+    navigateTeacherHome: function () {
+        this.router.navigate("teacher_home", {trigger: true});
     },
 
     navigateCheckIn: function () {
         this.router.navigate("check_in", {trigger: true});
     },
 
-    checkInComplete: function(courseName) {
+    checkInComplete: function (courseName) {
         Arrive.courseName = courseName;
         this.router.navigate("check_in_confirmation", {trigger: true});
     },
