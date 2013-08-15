@@ -32,6 +32,7 @@
 <script type="text/template" id="template-teacher-home">
     <div class="home_personal">
         <h3 class="school"><%= schoolName %></h3>
+        <h3 class="userName"><%= userName %></h3>
         <h5>
             <form>
                 <select id="courses">
@@ -51,7 +52,7 @@
 
 <script type="text/template" id="template-public-check-in-confirmation">
     <div class="home_personal">
-        <h3>Hello!</h3>
+         <h3 class="userName">Hello, <%= userName %>!</h3>
         <br/>
         <h4>You've successfully checked in to <%= courseName %><br><br>
             Have a great class!

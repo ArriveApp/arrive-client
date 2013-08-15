@@ -83,6 +83,7 @@ Arrive.view.TeacherHome = Backbone.View.extend({
     render: function () {
         var session = this.session.toJSON();
         this.$el.html(this.template({
+            userName: this.session.get("user").get("user").firstname,
             schoolName: session.school.get('name'),
             courses: session.courses.toJSON()
         }));
@@ -134,7 +135,7 @@ Arrive.view.PublicCheckInConfirmation = Backbone.View.extend({
 
     render: function() {
         this.$el.html(this.template({
-            userName: this.session.get('user').get('userName'),
+            userName: this.session.get("user").get("user").firstname,
             courseName: this.courseName
         }));
         return this;
