@@ -71,7 +71,7 @@ Arrive.model.Session = Backbone.Model.extend({
         this.authenticationToken = values.user['authentication_token'];
         this.isTeacher = values.user['is_teacher'];
         this.school = new Arrive.model.School(values.school);
-        this.userName = values.userName;
+        this.userName = values.user['firstname'];
         this.courses = new Backbone.Collection(values.courses);
     }
 });
