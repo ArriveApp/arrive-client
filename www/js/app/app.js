@@ -3,9 +3,9 @@ var Router = Backbone.Router.extend({
         "": "login",
         "teacher_home": "teacherHome",
         "public_check_in_confirmation": "publicCheckInConfirmation",
-
         "check_in": "checkIn",
         "check_in_confirmation": "checkInConfirmation",
+
         "home_multiple": "homeMultiple",
         "location": "schoolLocation",
         'check_in_multiple': "checkInMultiple",
@@ -31,8 +31,6 @@ var Router = Backbone.Router.extend({
         });
     },
 
-
-
     checkIn: function () {
         new Arrive.view.CheckIn({
             el: $("#main"),
@@ -42,24 +40,6 @@ var Router = Backbone.Router.extend({
 
     checkInConfirmation: function () {
         new Arrive.view.CheckInConfirmation({el: $("#main"), courseName: Arrive.courseName});
-    },
-
-    homeMultiple: function () {
-        new Arrive.view.HomeMultiple({el: $("#main")});
-    },
-
-    schoolLocation: function () {
-        new Arrive.view.SchoolLocation({
-            el: $("#main"),
-            school: Arrive.currentSchool
-        });
-    },
-
-    checkInMultiple: function () {
-        new Arrive.view.ConfirmationMultiple({
-            el: $("#main"),
-            school: Arrive.currentSchool
-        });
     }
 });
 
@@ -120,25 +100,6 @@ window.Arrive = {
     checkInComplete: function (courseName) {
         Arrive.courseName = courseName;
         this.router.navigate("check_in_confirmation", {trigger: true});
-    },
-
-    navigateHomeMultiple: function () {
-        this.router.navigate("home_multiple", {trigger: true});
-    },
-
-    navigateSchoolLocation: function (selectedSchool) {
-        this.currentSchool = selectedSchool;
-        this.router.navigate("location", {trigger: true});
-    },
-
-    navigateCheckInMultiple: function (selectedSchool) {
-        this.currentSchool = selectedSchool;
-        this.router.navigate("check_in_multiple", {trigger: true});
-    },
-
-    navigateConfirmationMultiple: function (selectedSchool) {
-        this.currentSchool = selectedSchool;
-        this.router.navigate("confirmation_multiple", {trigger: true});
     }
 }
 
