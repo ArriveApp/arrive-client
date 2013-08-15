@@ -163,7 +163,7 @@ Arrive.view.CheckIn = Backbone.View.extend({
         this.$el.html(this.template({
             schoolName: this.session.get('school').get('name'),
             courses: this.session.get('courses').toJSON(),
-            userName: this.session.get('user').get('userName')
+            userName: this.session.get('user').get('user').firstname
         }));
         return this;
     },
@@ -188,8 +188,9 @@ Arrive.view.CheckIn = Backbone.View.extend({
     },
 
     onCheckInSuccess: function () {
-        var courseName = this.checkin.courseName;
-        Arrive.vent.trigger('check-in-complete', courseName);
+        options = {"courseName": this.checkin.courseName, 
+                   "userName": this.session.get('user').get('user').firstname};
+        Arrive.vent.trigger('check-in-complete', options);
     },
 
     onCheckInFailed: function () {
@@ -198,10 +199,11 @@ Arrive.view.CheckIn = Backbone.View.extend({
 });
 
 Arrive.view.CheckInConfirmation = Backbone.View.extend({
+    //TODO: Change the name of variable this.options.courseName to something else 
     initialize: function (options) {
         this.template = _.template($('#template-student-check-in-confirmation').html());
-
-        this.courseName = options.courseName;
+        this.courseName = this.options.courseName.courseName;
+        this.userName = this.options.courseName.userName;
         this.render();
     },
 
@@ -211,7 +213,8 @@ Arrive.view.CheckInConfirmation = Backbone.View.extend({
 
     render: function () {
         this.$el.html(this.template({
-            courseName: this.courseName
+            courseName: this.courseName,
+            userName: this.userName
         }));
         return this;
     },
