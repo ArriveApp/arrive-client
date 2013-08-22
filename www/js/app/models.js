@@ -37,7 +37,10 @@ Arrive.model.User = Backbone.Model.extend({
 
 Arrive.model.CheckIn = Backbone.Model.extend({
     url: function () {
-        var path = '/schools/' + this.schoolId + '/courses/' + this.courseId + '/check_in?auth_token=' + this.authToken;
+        var schoolId = this.get('schoolId');
+        var courseId = this.get('courseId');
+        var authToken = this.get('authToken');
+        var path = '/schools/' + schoolId + '/courses/' + courseId + '/check_in?auth_token=' + authToken;
         return utils.url(path);
     },
 
@@ -45,16 +48,13 @@ Arrive.model.CheckIn = Backbone.Model.extend({
         authToken: null,
         schoolId: null,
         courseId: null,
-        courseName: ''
+        courseName: '',
+        pin: null
     },
 
-    initialize: function (values) {
-        this.authToken = values.authToken;
-        this.schoolId = values.schoolId;
-        this.courseId = values.courseId;
-        this.courseName = values.courseName;
-        if (values.pin) {
-            this.pin = values.pin;
+    validate: function (attrs) {
+        if (!_.isUndefined(attrs.pin) && _.isEmpty(attrs.pin)) {
+            return "pin";
         }
     }
 });

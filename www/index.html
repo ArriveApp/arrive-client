@@ -32,7 +32,9 @@
 <script type="text/template" id="template-teacher-home">
     <div class="home_personal">
         <h3 class="school"><%= schoolName %></h3>
-        <h3 class="userName"><%= userName %></h3>
+        <div id="error_message" name="error_message" hidden="true" class=validation-text-error>
+            <h5>Invalid PIN.</h5>
+        </div>
         <h5>
             <form>
                 <select id="courses">

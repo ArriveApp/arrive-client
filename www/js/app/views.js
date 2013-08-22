@@ -73,7 +73,17 @@ Arrive.view.TeacherHome = Backbone.View.extend({
         _.bindAll(this);
 
         this.session = options.session;
+        this.addListeners();
         this.render();
+    },
+
+    addListeners: function () {
+        this.checkin = new Arrive.model.CheckIn();
+        this.checkin.on('invalid', this.showValidationError);
+    },
+
+    showValidationError: function () {
+        this.$el.find('input[name=pin]').addClass('validation-error');
     },
 
     events: {
@@ -83,21 +93,28 @@ Arrive.view.TeacherHome = Backbone.View.extend({
     render: function () {
         var session = this.session.toJSON();
         this.$el.html(this.template({
-            userName: this.session.get("user").get("user").firstname,
             schoolName: session.school.get('name'),
             courses: session.courses.toJSON()
         }));
         return this;
     },
 
-    checkIn: function () {
-        this.checkin = new Arrive.model.CheckIn(this.readSelectionValues());
-
-        this.checkin.save()
-            .done(this.onCheckInSuccess)
-            .error(this.onCheckInFailed);
+    clearValidationErrors: function () {
+        this.$el.find('input[name=pin]').removeClass('validation-error');
+        this.$el.find('#error_message').hide();
     },
 
+    checkIn: function () {
+        this.clearValidationErrors();
+
+        this.checkin.set(this.readSelectionValues());
+
+        if(this.checkin.isValid()) {
+            this.checkin.save()
+                .done(this.onCheckInSuccess)
+                .error(this.onCheckInFailed);
+        }
+    },
     readSelectionValues: function () {
         var $course = this.$el.find('#courses option:selected');
         var $pin = this.$el.find('input[name=pin]');
@@ -116,7 +133,7 @@ Arrive.view.TeacherHome = Backbone.View.extend({
     },
 
     onCheckInFailed: function () {
-        console.log('check in failed');
+        this.$el.find('#error_message').show();
     }
 });
 
