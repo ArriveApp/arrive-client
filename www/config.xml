@@ -2,7 +2,7 @@
 <widget id="com.arrive" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Arrive</name>
     <icon src="img/arriveIcon.png"/>
-    <gap:splash src="img/arriveIcon.png" width="320" height="480" />
+    <splash src="img/arriveIcon.png" width="320" height="480" />
     <description>
         Attendance at your fingertips
     </description>
