@@ -47,7 +47,7 @@ var Router = Backbone.Router.extend({
 window.Arrive = {
     vent: _.extend({}, Backbone.Events),
     router: new Router(),
-    server: "http://localhost:3000",
+    server: "http://10.103.3.22:3000",
     currentSchool: null,
     user: null,
 
