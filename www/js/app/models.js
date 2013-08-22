@@ -53,8 +53,18 @@ Arrive.model.CheckIn = Backbone.Model.extend({
     },
 
     validate: function (attrs) {
+        var errors = [];
+
         if (!_.isUndefined(attrs.pin) && _.isEmpty(attrs.pin)) {
-            return "pin";
+            errors.push("pin");
+        }
+
+        if (_.isUndefined(attrs.courseId)) {
+            errors.push("course");
+        }
+
+        if (!_.isEmpty(errors)) {
+            return errors;
         }
     }
 });

@@ -82,8 +82,14 @@ Arrive.view.TeacherHome = Backbone.View.extend({
         this.checkin.on('invalid', this.showValidationError);
     },
 
-    showValidationError: function () {
-        this.$el.find('input[name=pin]').addClass('validation-error');
+    showValidationError: function (model, errors) {
+        if (_.contains(errors, 'pin')) {
+            this.$el.find('input[name=pin]').addClass('validation-error');
+        }
+
+        if (_.contains(errors, 'course')) {
+            this.$el.find('#courses').addClass('validation-error');
+        }
     },
 
     events: {
@@ -101,6 +107,7 @@ Arrive.view.TeacherHome = Backbone.View.extend({
 
     clearValidationErrors: function () {
         this.$el.find('input[name=pin]').removeClass('validation-error');
+        this.$el.find('#courses').removeClass('validation-error');
         this.$el.find('#error_message').hide();
     },
 
@@ -118,6 +125,7 @@ Arrive.view.TeacherHome = Backbone.View.extend({
     readSelectionValues: function () {
         var $course = this.$el.find('#courses option:selected');
         var $pin = this.$el.find('input[name=pin]');
+        window.$course = $course;
         return {
             authToken: this.session.get('authenticationToken'),
             schoolId: this.session.get('school').get('id'),
