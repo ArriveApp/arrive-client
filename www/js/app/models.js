@@ -53,6 +53,9 @@ Arrive.model.CheckIn = Backbone.Model.extend({
         this.schoolId = values.schoolId;
         this.courseId = values.courseId;
         this.courseName = values.courseName;
+        if (values.pin) {
+            this.pin = values.pin;
+        }
     }
 });
 

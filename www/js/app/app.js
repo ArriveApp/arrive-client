@@ -27,7 +27,8 @@ var Router = Backbone.Router.extend({
         new Arrive.view.PublicCheckInConfirmation({
             el: $("#main"),
             session: Arrive.session,
-            courseName: Arrive.courseName
+            courseName: Arrive.courseName,
+            student: Arrive.currentStudent
         });
     },
 
@@ -61,15 +62,8 @@ window.Arrive = {
         this.vent.on("login-complete", this.loginComplete);
         this.vent.on('public-check-in-complete', this.publicCheckInComplete);
         this.vent.on('teacher-home', this.navigateTeacherHome);
-
-
-
         this.vent.on("check-in", this.navigateCheckIn);
         this.vent.on("check-in-complete", this.checkInComplete);
-        this.vent.on("home-multiple", this.navigateHomeMultiple);
-        this.vent.on("school-location", this.navigateSchoolLocation);
-        this.vent.on("check-in-multiple", this.navigateCheckInMultiple);
-        this.vent.on("confirmation-multiple", this.navigateConfirmationMultiple);
     },
     navigateLogin: function () {
         this.router.navigate("", {trigger: true});
@@ -84,8 +78,9 @@ window.Arrive = {
         }
     },
 
-    publicCheckInComplete: function (courseName) {
+    publicCheckInComplete: function (courseName, firstName) {
         Arrive.courseName = courseName;
+        Arrive.currentStudent = firstName;
         this.router.navigate("public_check_in_confirmation", {trigger: true});
     },
 
