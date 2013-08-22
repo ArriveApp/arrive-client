@@ -78,7 +78,7 @@ Arrive.view.TeacherHome = Backbone.View.extend({
     },
 
     addListeners: function () {
-        this.checkin = new Arrive.model.CheckIn();
+        this.checkin = new Arrive.model.PublicCheckIn();
         this.checkin.on('invalid', this.showValidationError);
     },
 
@@ -116,7 +116,7 @@ Arrive.view.TeacherHome = Backbone.View.extend({
 
         this.checkin.set(this.readSelectionValues());
 
-        if(this.checkin.isValid()) {
+        if (this.checkin.isValid()) {
             this.checkin.save()
                 .done(this.onCheckInSuccess)
                 .error(this.onCheckInFailed);
@@ -146,7 +146,7 @@ Arrive.view.TeacherHome = Backbone.View.extend({
 });
 
 Arrive.view.PublicCheckInConfirmation = Backbone.View.extend({
-    initialize: function(options) {
+    initialize: function (options) {
         this.template = _.template($('#template-public-check-in-confirmation').html());
         _.bindAll(this);
 
@@ -160,7 +160,7 @@ Arrive.view.PublicCheckInConfirmation = Backbone.View.extend({
         'click a[name=new_class]': 'checkIn'
     },
 
-    render: function() {
+    render: function () {
         this.$el.html(this.template({
             courseName: this.courseName,
             userName: this.student
@@ -168,7 +168,7 @@ Arrive.view.PublicCheckInConfirmation = Backbone.View.extend({
         return this;
     },
 
-    checkIn: function() {
+    checkIn: function () {
         Arrive.vent.trigger('teacher-home');
     }
 });
@@ -208,15 +208,18 @@ Arrive.view.CheckIn = Backbone.View.extend({
     checkIn: function () {
         this.checkin = new Arrive.model.CheckIn(this.readSelectionValues());
 
-        this.checkin.save()
-            .done(this.onCheckInSuccess)
-            .error(this.onCheckInFailed)
-            .always(this.onCheckInSuccess);
+        if (this.checkin.isValid()) {
+            this.checkin.save()
+                .done(this.onCheckInSuccess)
+                .error(this.onCheckInFailed);
+        }
     },
 
     onCheckInSuccess: function () {
-        options = {"courseName": this.checkin.courseName, 
-                   "userName": this.session.get('user').get('user').firstname};
+        var options = {
+            "courseName": this.checkin.courseName,
+            "userName": this.session.get('user').get('user').firstname
+        };
         Arrive.vent.trigger('check-in-complete', options);
     },
 

@@ -63,6 +63,29 @@
     </div>
 </script>
 
+<script type="text/template" id="template-student-check-in">
+    <div class="home_personal">
+        <h3>Hello, <%= userName %>!</h3>
+        <h4 class="school"><%= schoolName %></h4>
+        <h4>Please select your class:</h4>
+        <h5>
+            <form>
+                <select id="courses">
+                    <option value="#" disabled>Select your class...</option>
+                    <% _.each(courses, function(course) { %>
+                    <option id="<%= course.id %>"><%= course.name %></option>
+                    <% }); %>
+                </select>
+                <br><br>
+                <a href="#" name="check_in" id="student_check_in">Check In</a>
+            </form>
+        </h5>
+    </div>
+</script>
+
+
+
+
 
 
 
@@ -118,26 +141,6 @@
                 <input placeholder="Insert your PIN..." type="text" name="pin" maxlength="4">
                 <br><br>
                 <a href="#" name="confirmation_multiple" id="student_check_in">Check In</a>
-            </form>
-        </h5>
-    </div>
-</script>
-
-<script type="text/template" id="template-student-check-in">
-    <div class="home_personal">
-        <h3>Hello, <%= userName %>!</h3>
-        <h4 class="school"><%= schoolName %></h4>
-        <h4>Please select your class:</h4>
-        <h5>
-            <form>
-                <select id="courses">
-                    <option value="#" disabled>Select your class...</option>
-                    <% _.each(courses, function(course) { %>
-                    <option id="<%= course.id %>"><%= course.name %></option>
-                    <% }); %>
-                </select>
-                <br><br>
-                <a href="#" name="check_in" id="student_check_in">Check In</a>
             </form>
         </h5>
     </div>

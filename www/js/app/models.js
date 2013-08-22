@@ -48,19 +48,33 @@ Arrive.model.CheckIn = Backbone.Model.extend({
         authToken: null,
         schoolId: null,
         courseId: null,
-        courseName: '',
-        pin: null
+        courseName: ''
     },
 
     validate: function (attrs) {
         var errors = [];
 
-        if (!_.isUndefined(attrs.pin) && _.isEmpty(attrs.pin)) {
-            errors.push("pin");
+        if (_.isUndefined(attrs.courseId)) {
+            errors.push("course");
         }
+
+        if (!_.isEmpty(errors)) {
+            return errors;
+        }
+    }
+});
+
+Arrive.model.PublicCheckIn = Arrive.model.CheckIn.extend({
+    //TODO figure out how to call super
+    validate: function (attrs) {
+        var errors = [];
 
         if (_.isUndefined(attrs.courseId)) {
             errors.push("course");
+        }
+
+        if (!_.isUndefined(attrs.pin) && _.isEmpty(attrs.pin)) {
+            errors.push("pin");
         }
 
         if (!_.isEmpty(errors)) {
