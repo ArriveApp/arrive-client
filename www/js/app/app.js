@@ -47,7 +47,7 @@ var Router = Backbone.Router.extend({
 window.Arrive = {
     vent: _.extend({}, Backbone.Events),
     router: new Router(),
-    server: "http://arrive-server-prod.herokuapp.com",
+    server: "http://arrive-server.herokuapp.com",
     currentSchool: null,
     user: null,
 
