@@ -136,7 +136,7 @@ Arrive.view.TeacherHome = Backbone.View.extend({
     },
 
     onCheckInSuccess: function (response) {
-        var courseName = this.checkin.courseName;
+        var courseName = this.checkin.get('courseName');
         Arrive.vent.trigger('public-check-in-complete', courseName, response.firstname);
     },
 
@@ -217,7 +217,7 @@ Arrive.view.CheckIn = Backbone.View.extend({
 
     onCheckInSuccess: function () {
         var options = {
-            "courseName": this.checkin.courseName,
+            "courseName": this.checkin.get('courseName'),
             "userName": this.session.get('user').get('user').firstname
         };
         Arrive.vent.trigger('check-in-complete', options);
