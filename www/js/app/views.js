@@ -140,7 +140,11 @@ Arrive.view.TeacherHome = Backbone.View.extend({
         Arrive.vent.trigger('public-check-in-complete', courseName, response.firstname);
     },
 
-    onCheckInFailed: function () {
+    onCheckInFailed: function (model, xhr, options) {
+
+        var error_message = model.responseJSON.error_message;
+        console.log(error_message);
+        this.$el.find('#error_message h5').text(error_message);
         this.$el.find('#error_message').show();
     }
 });
