@@ -227,8 +227,11 @@ Arrive.view.CheckIn = Backbone.View.extend({
         Arrive.vent.trigger('check-in-complete', options);
     },
 
-    onCheckInFailed: function () {
-        console.log('check in failed');
+    onCheckInFailed: function (model ) {
+        var error_message = model.responseJSON.error_message;
+        console.log(error_message);
+        this.$el.find('#error_message h5').text(error_message);
+        this.$el.find('#error_message').show();
     }
 });
 
