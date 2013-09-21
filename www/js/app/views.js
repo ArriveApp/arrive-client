@@ -98,10 +98,15 @@ Arrive.view.TeacherHome = Backbone.View.extend({
 
     render: function () {
         var session = this.session.toJSON();
-        this.$el.html(this.template({
-            schoolName: session.school.get('name'),
-            courses: session.courses.toJSON()
+
+
+       this.$el.html(this.template({
+           schoolName: session.school.get('name'),
+           courses: session.courses.toJSON()
         }));
+
+
+        this.$el.trigger('create');
         return this;
     },
 
@@ -169,6 +174,8 @@ Arrive.view.PublicCheckInConfirmation = Backbone.View.extend({
             courseName: this.courseName,
             userName: this.student
         }));
+
+        this.$el.trigger('create');
         return this;
     },
 
@@ -196,6 +203,9 @@ Arrive.view.CheckIn = Backbone.View.extend({
             courses: this.session.get('courses').toJSON(),
             userName: this.session.get('user').get('user').firstname
         }));
+
+        this.$el.trigger('create');
+
         return this;
     },
 
@@ -253,6 +263,9 @@ Arrive.view.CheckInConfirmation = Backbone.View.extend({
             courseName: this.courseName,
             userName: this.userName
         }));
+
+        this.$el.trigger('create');
+
         return this;
     },
 
