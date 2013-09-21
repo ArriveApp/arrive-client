@@ -24,7 +24,7 @@ body {
     -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
     -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color: #ffffff;
+    background-color: whitesmoke;
     /*background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -53,8 +53,6 @@ body {
     position: absolute;
     left: 50%;
     top: 25%;
-    height: 50px;
-    width: 400px;
     text-align: center;
     padding: 70px 0 0 0; /* image height is 200px (bottom 20px are overlapped with text) */
     margin: -114px 0 0 -200px; /* offset vertical: half of image height and text area height */
@@ -80,8 +78,7 @@ body {
 }
 
 .home_personal {
-    background: url(../img/logo.png) no-repeat center top; /* 170px x 200px */
-    background-size: 100%;
+
     font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     position: absolute;
     left: 50%;
@@ -91,27 +88,28 @@ body {
     text-align: center;
     padding: 78px 0 0 0; /* image height is 200px (bottom 20px are overlapped with text) */
     /* offset horizontal: half of text area width */
-    margin: -114px 0 0 -200px; /* offset vertical: half of image height and text area height */
+    margin: -110px 0 0 -200px; /* offset vertical: half of image height and text area height */
     /* offset horizontal: half of text area width */
 }
 
-select {
-    width: 26em !important;
+.logo img {
+    with: 400px;
+    height: 200px;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: ;
+    margin-right: ;
+
+
 }
 
-select option{
-    width: 26em !important;
-}
-
-input {
-   width: 26em;
+.logo {
+    position: relative;
+    text-align: center;
 }
 
 
 
-button {
-    font-size: 30px;
-}
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
