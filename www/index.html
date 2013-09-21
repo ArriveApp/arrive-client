@@ -3,34 +3,66 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.min.css" />
+    <link href="http://code.jquery.com/mobile/1.3.0/jquery.mobile.structure-1.3.0.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
-    <meta name="viewport" content="width=device-width; initial-scale=0.8, maximum-scale=0.8, minimum-scale=0.8, user-scalable=no, target-densityDpi=device-dpi" />
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0, maximum-scale=0.8, minimum-scale=0.8, user-scalable=no, target-densityDpi=device-dpi" />
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" src="js/lib/lodash.min.js"></script>
+    <script type="text/javascript" src="js/lib/backbone-min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/app/app.js"></script>
+    <script type="text/javascript" src="js/app/views.js"></script>
+    <script type="text/javascript" src="js/app/models.js"></script>
+
 
     <title>Arrive</title>
 </head>
 <body>
-<div id="main">
+<div data-role="page" >
+
+    <div data-role="header" data-position="fixed" >
+
+        <div class="logo"> <img  src="img/logo.png"> </div>
+
+    </div>
+
+    <div data-role="content" id="main">
+
+    </div>
 </div>
 
 <!-- templates -->
 
 <script type="text/template" id="template-home">
-    <div class="home_personal">
+    <div class="home_personal" >
         <h3>Welcome!</h3>
 
         <div id="error_message" name="error_message" hidden="true" class=validation-text-error>
             <h5>The username or password you entered is incorrect.</h5>
         </div>
+
+
+
+
         <form>
-            <h5><input placeholder="Email..." type="email" name="email" id="email"></h5>
-            <h5><input placeholder="Password..." type="password" name="pin" id="password" maxlength="4"></h5>
-            <a href="#" name="login" id="student_check_in">Log In</a>
+            <div data-role="fieldcontain">
+            <h5><input placeholder="Email..." type="email" name="email" id="email" data-inline="true"></h5>
+            <h5><input placeholder="Password..." type="password" name="pin" id="password" maxlength="4" data-inline="true"></h5>
+            <a href="#" name="login" id="student_check_in" data-role="button" data-inline="true" >Log In</a>
+            </div>
         </form>
+
+
     </div>
 </script>
 
 <script type="text/template" id="template-teacher-home">
-    <div class="home_personal">
+    <div>
         <h3 class="school"><%= schoolName %></h3>
         <div id="error_message" name="error_message" hidden="true" class=validation-text-error>
             <h5>Invalid PIN.</h5>
@@ -43,17 +75,20 @@
                     <option id="<%= course.id %>"><%= course.name %></option>
                     <% }); %>
                 </select>
+
+
+
                 <br><br>
                 <input placeholder="Insert Your PIN..." type="text" name="pin" maxlength="4">
                 <br><br>
-                <a href="#" name="check_in" id="student_check_in">Check In</a>
+                <a href="#" name="check_in" id="student_check_in" data-role="button">Check In</a>
             </form>
         </h5>
     </div>
 </script>
 
 <script type="text/template" id="template-public-check-in-confirmation">
-    <div class="home_personal">
+    <div >
          <h3 class="userName">Hello, <%= userName %>!</h3>
         <br/>
         <h4>You have successfully checked in to <%= courseName %><br><br>
@@ -64,7 +99,7 @@
 </script>
 
 <script type="text/template" id="template-student-check-in">
-    <div class="home_personal">
+    <div >
         <h3>Hello, <%= userName %>!</h3>
         <h4 class="school"><%= schoolName %></h4>
         <h4>Please select your class:</h4>
@@ -77,7 +112,7 @@
                     <% }); %>
                 </select>
                 <br><br>
-                <a href="#" name="check_in" id="student_check_in">Check In</a>
+                <a href="#" name="check_in" id="student_check_in" data-role="button" data-inline="true">Check In</a>
             </form>
         </h5>
 
@@ -88,24 +123,16 @@
 </script>
 
 <script type="text/template" id="template-student-check-in-confirmation">
-    <div class="home_personal">
+    <div >
         <h3>Hello, <%= userName %></h3>
         <h4>Thanks! You have successfully checked in to <%= courseName %> <br><br>
             Have a great class!
         </h4>
-        <a href="#" name="new_class" id="new_class">New Class</a>
+        <a href="#" name="new_class" id="new_class" data-role="button">New Class</a>
     </div>
 </script>
 
-<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="js/lib/lodash.min.js"></script>
-<script type="text/javascript" src="js/lib/backbone-min.js"></script>
-<!--<script type="text/javascript" src="js/stackmob-js-0.9.2-bundled-min.js"></script>-->
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/app/app.js"></script>
-<script type="text/javascript" src="js/app/views.js"></script>
-<script type="text/javascript" src="js/app/models.js"></script>
+
 
 <script type="text/javascript">
     app.initialize();
