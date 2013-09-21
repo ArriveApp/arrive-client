@@ -69,12 +69,13 @@ Arrive.view.Login = Backbone.View.extend({
 
 Arrive.view.TeacherHome = Backbone.View.extend({
     initialize: function (options) {
-        this.template = _.template($('#template-teacher-home').html());
+        this.template = _.template($('#template-teacher-home').html()   );
         _.bindAll(this);
 
         this.session = options.session;
         this.addListeners();
         this.render();
+
     },
 
     addListeners: function () {
