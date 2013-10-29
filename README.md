@@ -74,6 +74,10 @@ To run the app in the official platform emulators:
     
             cordova build
 
+	It's also possible to build for specific environments. You can use `TARGET=local` to make the app use your local server and `TARGET=test` to use the test environment.
+	
+			TARGET=local cordova build
+
 2. Now, launch the emulator for the specific platform
     
             cordova emulate ios
